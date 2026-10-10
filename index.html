@@ -7,7 +7,7 @@
     <meta name="description" content="Wedding invitation for Aditya & Siddhibala" />
 
     <meta property="og:title" content="Aditya & Siddhibala — Wedding Invitation" />
-    <meta property="og:description" content="You are warmly invited to celebrate our wedding on 6 December 2026." />
+    <meta property="og:description" content="You are warmly invited to celebrate our wedding on 3–6 December 2026." />
     <meta property="og:image" content="https://adityadubey1313-oss.github.io/adisiddhi/preview.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://adityadubey1313-oss.github.io/adisiddhi/" />
@@ -17,460 +17,131 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <style>
-      :root {
-        --bg: #f7f1ea;
-        --card: rgba(255, 255, 255, 0.12);
-        --ink: #2b130e;
-        --maroon: #5a1d1a;
-        --maroon-deep: #2f0e0c;
-        --gold: #d8b07a;
-        --gold-soft: #f5d7a6;
-        --line: rgba(255, 255, 255, 0.28);
-        --white: #fffdf9;
-      }
-
-      * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
-      body {
-        margin: 0;
-        font-family: "Jost", sans-serif;
-        background: var(--bg);
-        color: var(--ink);
-      }
-
-      img { max-width: 100%; display: block; }
-      a { color: inherit; text-decoration: none; }
-
-      .sr-only {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        border: 0;
-      }
-
-      .intro {
-        position: relative;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        overflow: hidden;
-        background: #1e0b0b;
-        isolation: isolate;
-      }
-
-      .slides {
-        position: absolute;
-        inset: 0;
-        filter: saturate(0.9) contrast(1.08);
-      }
-
-      .slide {
-        position: absolute;
-        inset: 0;
-        opacity: 0;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        transform: scale(1.1);
-        animation: slideFade 14s infinite;
-      }
-
-      .slide:nth-child(1) {
-        background-image: linear-gradient(rgba(19, 10, 11, 0.36), rgba(19, 10, 11, 0.52)), url('preview.jpg');
-        animation-delay: 0s;
-      }
-
-      .slide:nth-child(2) {
-        background-image: linear-gradient(rgba(19, 10, 11, 0.28), rgba(19, 10, 11, 0.48)), url('preview.jpg');
-        animation-delay: 3.5s;
-      }
-
-      .slide:nth-child(3) {
-        background-image: linear-gradient(rgba(19, 10, 11, 0.32), rgba(19, 10, 11, 0.5)), url('preview.jpg');
-        animation-delay: 7s;
-      }
-
-      .slide:nth-child(4) {
-        background-image: linear-gradient(rgba(19, 10, 11, 0.2), rgba(19, 10, 11, 0.56)), url('preview.jpg');
-        animation-delay: 10.5s;
-      }
-
-      @keyframes slideFade {
-        0% { opacity: 0; transform: scale(1.12); }
-        8% { opacity: 1; }
-        28% { opacity: 1; }
-        42% { opacity: 0; transform: scale(1.05); }
-        100% { opacity: 0; transform: scale(1.12); }
-      }
-
-      .intro::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(180deg, rgba(17, 8, 9, 0.18), rgba(17, 8, 9, 0.72));
-        z-index: 1;
-      }
-
-      .intro-inner {
-        position: relative;
-        z-index: 2;
-        text-align: center;
-        color: var(--white);
-        padding: 2rem 1.25rem;
-      }
-
-      .tag {
-        letter-spacing: 0.35rem;
-        text-transform: uppercase;
-        font-size: 0.78rem;
-        color: var(--gold-soft);
-        margin-bottom: 1rem;
-      }
-
-      h1 {
-        margin: 0;
-        font-family: "Cormorant Garamond", serif;
-        font-weight: 600;
-        font-size: clamp(3.3rem, 7vw, 7.2rem);
-        line-height: 0.9;
-        letter-spacing: 0.04em;
-      }
-
-      .ampersand {
-        display: inline-block;
-        font-size: 0.7em;
-        margin: 0 0.25em;
-      }
-
-      .subname {
-        margin-top: 0.8rem;
-        color: rgba(255,255,255,0.85);
-        font-size: clamp(1rem, 2vw, 1.5rem);
-        letter-spacing: 0.28rem;
-        text-transform: uppercase;
-      }
-
-      .meta {
-        margin-top: 1.4rem;
-        font-size: 0.9rem;
-        letter-spacing: 0.24rem;
-        text-transform: uppercase;
-        color: rgba(255,255,255,0.88);
-      }
-
-      .invite-btn {
-        margin-top: 2rem;
-        border: 1px solid rgba(255,255,255,0.5);
-        background: rgba(255,255,255,0.04);
-        color: var(--white);
-        padding: 0.95rem 2rem;
-        border-radius: 50px;
-        font-size: 0.82rem;
-        letter-spacing: 0.26rem;
-        text-transform: uppercase;
-        cursor: pointer;
-        transition: 0.25s ease;
-      }
-
-      .invite-btn:hover {
-        background: rgba(255,255,255,0.08);
-        transform: translateY(-1px);
-      }
-
-      .main {
-        display: none;
-        background: var(--bg);
-      }
-
-      .main.show {
-        display: block;
-      }
-
-      .section {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding: 4.5rem 1.25rem;
-      }
-
-      .glass {
-        background: rgba(255,255,255,0.28);
-        border: 1px solid rgba(90,29,26,0.12);
-        box-shadow: 0 20px 50px rgba(62,25,24,0.06);
-        backdrop-filter: blur(10px);
-      }
-
-      .hero-card {
-        border-radius: 28px;
-        padding: 2rem;
-        text-align: center;
-      }
-
-      .eyebrow {
-        margin: 0 0 0.9rem;
-        font-size: 0.8rem;
-        letter-spacing: 0.32rem;
-        text-transform: uppercase;
-        color: var(--maroon);
-        font-weight: 500;
-      }
-
-      .names {
-        font-family: "Cormorant Garamond", serif;
-        font-weight: 600;
-        font-size: clamp(2.6rem, 5vw, 6rem);
-        line-height: 0.9;
-        letter-spacing: 0.03em;
-        color: var(--maroon-deep);
-      }
-
-      .dateline {
-        margin-top: 0.7rem;
-        font-size: 1rem;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        color: rgba(43,19,14,0.82);
-      }
-
-      .details-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .detail-box {
-        padding: 1.4rem 1rem;
-        border-radius: 18px;
-        text-align: center;
-      }
-
-      .detail-box strong {
-        display: block;
-        color: var(--maroon);
-        font-size: 0.8rem;
-        letter-spacing: 0.18rem;
-        text-transform: uppercase;
-        margin-bottom: 0.75rem;
-      }
-
-      .detail-box span {
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(1.8rem, 3vw, 2.6rem);
-        color: var(--ink);
-      }
-
-      .big-photo {
-        border-radius: 28px;
-        overflow: hidden;
-        margin-top: 2.5rem;
-        position: relative;
-        height: 480px;
-        background-image: linear-gradient(rgba(0,0,0,0.06), rgba(0,0,0,0.14)), url('preview.jpg');
-        background-size: cover;
-        background-position: center;
-        box-shadow: 0 30px 80px rgba(50, 19, 17, 0.12);
-      }
-
-      .stories {
-        margin-top: 2rem;
-        display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        gap: 1.25rem;
-      }
-
-      .story-box {
-        border-radius: 24px;
-        padding: 2rem;
-      }
-
-      .story-box h3 {
-        margin: 0 0 1rem;
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2.2rem, 4vw, 3rem);
-        color: var(--maroon-deep);
-      }
-
-      .story-box p {
-        margin: 0;
-        line-height: 1.8;
-        color: rgba(43,19,14,0.8);
-        font-size: 1.05rem;
-      }
-
-      .venue-card {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-        margin-top: 2.5rem;
-      }
-
-      .venue-map {
-        min-height: 320px;
-        border-radius: 24px;
-        background: linear-gradient(135deg, rgba(90,29,26,0.8), rgba(27,14,13,0.9)), url('preview.jpg') center/cover no-repeat;
-        position: relative;
-        overflow: hidden;
-      }
-
-      .venue-map::after {
-        content: "Hotel Gulzar\A Jabalpur";
-        white-space: pre;
-        position: absolute;
-        left: 1.25rem;
-        bottom: 1.25rem;
-        color: var(--white);
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2rem, 4vw, 3.2rem);
-        line-height: 1;
-      }
-
-      .venue-text {
-        padding: 2rem;
-        border-radius: 24px;
-      }
-
-      .venue-text h3 {
-        margin: 0 0 1rem;
-        font-family: "Cormorant Garamond", serif;
-        font-size: clamp(2.2rem, 4vw, 3rem);
-        color: var(--maroon-deep);
-      }
-
-      .venue-text p {
-        margin: 0.7rem 0;
-        line-height: 1.8;
-        color: rgba(43,19,14,0.8);
-      }
-
-      .cta {
-        margin-top: 2.4rem;
-        text-align: center;
-      }
-
-      .cta a {
-        display: inline-block;
-        background: var(--maroon);
-        color: var(--white);
-        padding: 1rem 2rem;
-        border-radius: 999px;
-        letter-spacing: 0.2rem;
-        text-transform: uppercase;
-        font-size: 0.78rem;
-      }
-
-      @media (max-width: 860px) {
-        .details-grid,
-        .stories,
-        .venue-card {
-          grid-template-columns: 1fr;
-        }
-
-        .big-photo { height: 340px; }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <section class="intro" id="intro">
-      <div class="slides" aria-hidden="true">
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-        <div class="slide"></div>
-      </div>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="nav-wrap">
+          <div class="brand" aria-label="Aditya and Siddhibala">Aditya &amp; Siddhibala</div>
 
-      <div class="intro-inner">
-        <div class="tag">With love and gratitude</div>
-        <h1>Aditya <span class="ampersand">&</span> Siddhibala</h1>
-        <div class="subname">Invite you to celebrate</div>
-        <div class="meta">6 December 2026 • Jabalpur</div>
-        <button class="invite-btn" id="openInvitation" type="button">Open Invitation</button>
-      </div>
-    </section>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="#home">Home</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#venues">Venues</a>
+            <a href="#family">Family</a>
+            <a href="#media">Media</a>
+          </nav>
 
-    <main class="main" id="mainContent">
-      <section class="section">
-        <div class="hero-card glass">
-          <div class="eyebrow">Wedding Ceremony & Reception</div>
-          <div class="names">Aditya &amp; Siddhibala</div>
-          <div class="dateline">6 December 2026 • 9:00 AM to 8:00 PM • Jabalpur</div>
-        </div>
-
-        <div class="details-grid">
-          <div class="detail-box glass">
-            <strong>Wedding</strong>
-            <span>6 Dec</span>
-          </div>
-          <div class="detail-box glass">
-            <strong>Venue</strong>
-            <span>Hotel Gulzar</span>
-          </div>
-          <div class="detail-box glass">
-            <strong>Time</strong>
-            <span>9:00 AM</span>
+          <div class="header-actions">
+            <div class="lang-toggle" aria-label="Language selector">
+              <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">EN</button>
+              <button class="lang-btn" type="button" data-lang="hi" aria-pressed="false">हि</button>
+            </div>
           </div>
         </div>
+      </header>
 
-        <div class="big-photo" aria-label="Wedding preview image"></div>
-      </section>
-
-      <section class="section">
-        <div class="stories">
-          <div class="story-box glass">
-            <h3>With joy in our hearts</h3>
-            <p>
-              We invite you to witness the beginning of our forever. Your presence and blessings will make our day even more meaningful and memorable.
-            </p>
+      <main id="home">
+        <section class="hero">
+          <div class="hero-shell">
+            <div class="hero-card intro-screen" id="introScreen" aria-live="polite">
+              <div class="content">
+                <p class="intro-tag" id="introTag">With love and gratitude</p>
+                <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
+                <p class="hero-subtitle" id="introInvite">Invite you to celebrate</p>
+                <div class="hero-date" id="introDate">3–6 December 2026 • Jabalpur, Madhya Pradesh</div>
+                <div class="hero-actions">
+                  <button class="primary-btn" type="button" id="openInvitation">Open Invitation</button>
+                  <button class="secondary-btn" type="button" id="replayButton">Replay opening</button>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="story-box glass">
-            <h3>Celebration</h3>
-            <p>
-              Join us for a sacred wedding ceremony followed by a joyful reception evening filled with love, laughter, and togetherness.
-            </p>
-          </div>
+        </section>
+
+        <div class="hidden" id="mainContent">
+          <section class="section" id="heroSection">
+            <div class="panel hero-summary">
+              <p class="eyebrow" id="mainHeading">Wedding Invitation</p>
+              <div class="names-shell" id="mainNames">Aditya &amp; Siddhibala</div>
+              <div class="date-line">
+                <span id="familyLine">Dubey Family invites you.</span>
+              </div>
+
+              <div class="countdown-grid" aria-label="Wedding countdown">
+                <div class="time-box">
+                  <strong id="daysValue">00</strong>
+                  <span id="daysLabel">Days</span>
+                </div>
+                <div class="time-box">
+                  <strong id="hoursValue">00</strong>
+                  <span id="hoursLabel">Hours</span>
+                </div>
+                <div class="time-box">
+                  <strong id="minutesValue">00</strong>
+                  <span id="minutesLabel">Minutes</span>
+                </div>
+                <div class="time-box">
+                  <strong id="secondsValue">00</strong>
+                  <span id="secondsLabel">Seconds</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="gallery">
+            <h2 class="section-heading" id="galleryTitle">Moments</h2>
+            <div class="gallery-layout">
+              <div class="photo-panel" aria-label="Wedding artwork"></div>
+              <div class="gallery-stack">
+                <div class="gallery-tile" aria-label="Wedding artwork detail"></div>
+                <div class="gallery-tile" aria-label="Wedding artwork detail"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="section" id="schedule">
+            <h2 class="section-heading" id="scheduleTitle">Wedding Schedule</h2>
+            <div class="schedule-list" id="scheduleList"></div>
+          </section>
+
+          <section class="section" id="venues">
+            <h2 class="section-heading" id="venueTitle">Venue &amp; Directions</h2>
+            <div class="venue-grid" id="venueGrid"></div>
+          </section>
+
+          <section class="section" id="family">
+            <h2 class="section-heading" id="familyTitle">Family</h2>
+            <div class="family-grid" id="familyGrid"></div>
+          </section>
+
+          <section class="section" id="media">
+            <h2 class="section-heading" id="mediaTitle">Invitation Videos</h2>
+            <div class="media-grid" id="videoList"></div>
+          </section>
+
+          <section class="section" id="share">
+            <h2 class="section-heading" id="shareTitle">Share the Invitation</h2>
+            <div class="share-wrap">
+              <div>
+                <p id="downloadCalendarCaption">Download the complete invitation calendar and share the celebration with your loved ones.</p>
+              </div>
+              <div class="venue-links">
+                <button class="link-pill" id="downloadCalendar" type="button">Download calendar</button>
+                <button class="link-pill" id="whatsappShare" type="button">Share</button>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
+      </main>
 
-      <section class="section">
-        <div class="venue-card">
-          <div class="venue-map" aria-label="Venue preview"></div>
-          <div class="venue-text glass">
-            <h3>Wedding Venue</h3>
-            <p><strong>Hotel Gulzar</strong></p>
-            <p>Jabalpur, Madhya Pradesh</p>
-            <p>6 December 2026</p>
-            <p>Wedding Ceremony: 9:00 AM</p>
-            <p>Reception: 8:00 PM</p>
-          </div>
-        </div>
+      <footer class="site-footer">
+        <p id="footerText">With love, Aditya &amp; Siddhibala</p>
+      </footer>
+    </div>
 
-        <div class="cta">
-          <a href="https://maps.google.com/?q=Hotel+Gulzar+Jabalpur" target="_blank" rel="noopener">View Venue</a>
-        </div>
-      </section>
-    </main>
-
-    <audio id="bgAudio" loop preload="auto">
-      <source src="wedding-song.mp3" type="audio/mpeg" />
-    </audio>
-
-    <script>
-      const intro = document.getElementById('intro');
-      const mainContent = document.getElementById('mainContent');
-      const btn = document.getElementById('openInvitation');
-      const audio = document.getElementById('bgAudio');
-
-      btn.addEventListener('click', () => {
-        intro.style.display = 'none';
-        mainContent.classList.add('show');
-        if (audio && typeof audio.play === 'function') {
-          audio.play().catch(() => {});
-        }
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-    </script>
+    <script src="invitation-data.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>
