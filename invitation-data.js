@@ -150,11 +150,11 @@ const invitationData = {
       id: 'hotelGulzar',
       name: {
         en: 'Hotel Gulzar',
-        hi: 'होटल गुलज़ार'
+        hi: 'होटल गुलजार'
       },
       address: {
         en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
-        hi: 'मदन महल चौक से शंकराचार्य चौक रोड, महानंद, जबलपुर, मध्य प्रदेश, भारत।'
+        hi: 'मदन महल चौक से शंकराचार्य चौक मार्ग, महानद्दा, जबलपुर, मध्य प्रदेश, भारत।'
       },
       mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur'
     }
@@ -164,7 +164,7 @@ const invitationData = {
       id: 'magarmati',
       title: {
         en: 'Magarmati, Mandapachhadan & Matrika Pujan',
-        hi: 'मगरमाती, मंडपच्छादन और मातृका पूजन'
+        hi: 'मागरमाटी, मण्डपाच्छादन और मातृका पूजन'
       },
       date: '2026-12-03',
       day: { en: 'Thursday', hi: 'गुरुवार' },
@@ -180,7 +180,7 @@ const invitationData = {
       id: 'khermai',
       title: {
         en: 'Khermai Devi Darshan & Pujan',
-        hi: 'खेरमै देवी दर्शन और पूजन'
+        hi: 'खेरमाई देवी दर्शन-पूजन'
       },
       date: '2026-12-04',
       day: { en: 'Friday', hi: 'शुक्रवार' },
@@ -196,7 +196,7 @@ const invitationData = {
       id: 'shreefal-sat-haldi',
       title: {
         en: 'Shreefal Sat & Haldi (Haridralepan)',
-        hi: 'श्रीफल सात एवं हल्दी (हरिद्रलेपन)'
+        hi: 'श्रीफल सत एवं हरिद्रालेपन'
       },
       date: '2026-12-04',
       day: { en: 'Friday', hi: 'शुक्रवार' },
@@ -212,7 +212,7 @@ const invitationData = {
       id: 'mehendi',
       title: {
         en: 'Bride\'s Mehendi',
-        hi: 'वधू का मेहंदी'
+        hi: 'वधू की मेहंदी'
       },
       date: '2026-12-04',
       day: { en: 'Friday', hi: 'शुक्रवार' },
@@ -228,7 +228,7 @@ const invitationData = {
       id: 'kul-devta',
       title: {
         en: 'Kul-Devta (Baram-Dev) Pujan',
-        hi: 'कुल-देवता (बरम-देव) पूजन'
+        hi: 'श्री कुल-देव (बरम-देव) पूजन'
       },
       date: '2026-12-05',
       day: { en: 'Saturday', hi: 'शनिवार' },
@@ -244,7 +244,7 @@ const invitationData = {
       id: 'floral-haldi',
       title: {
         en: 'Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)',
-        hi: 'फूलों की हल्दी और आशीर्वाद कार्यक्रम (पुष्प आशीर्वाद वर्षा)'
+        hi: 'वर-वधू पर पुष्प आशीर्वाद वर्षा (फूलों की हल्दी)'
       },
       date: '2026-12-05',
       day: { en: 'Saturday', hi: 'शनिवार' },
@@ -292,7 +292,7 @@ const invitationData = {
       id: 'baraat-welcome',
       title: {
         en: 'Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)',
-        hi: 'बरात स्वागत, वरमाला, पाणिग्रहण और सप्तपदी (विवाह संस्कार)'
+        hi: 'बारात स्वागत, वरमाला, पाणिग्रहण, सप्तपदी संस्कार'
       },
       date: '2026-12-06',
       day: { en: 'Sunday', hi: 'रविवार' },
@@ -308,7 +308,7 @@ const invitationData = {
       id: 'reception-dinner',
       title: {
         en: 'Reception & Dinner (Aashirwad Samaroh & Preetibhoj)',
-        hi: 'रेसेप्शन और डिनर (आशीर्वाद समरोह एवं प्रीतिभोज)'
+        hi: 'वर-वधू आशीर्वाद समारोह एवं प्रीतिभोज'
       },
       date: '2026-12-06',
       day: { en: 'Sunday', hi: 'रविवार' },
@@ -317,7 +317,7 @@ const invitationData = {
       venueId: 'hotelGulzar',
       note: {
         en: 'Evening reception and dinner begin at 8:00 PM onwards.',
-        hi: 'सांय रेसेप्शन और डिनर 8:00 PM से आरंभ है।'
+        hi: 'रात्रि 8 बजे से'
       }
     }
   ]
