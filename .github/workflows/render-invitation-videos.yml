@@ -1,0 +1,143 @@
+name: Render invitation videos
+
+on:
+  workflow_dispatch:
+    inputs:
+      music_rights_confirmed:
+        description: Confirm that you have permission to use wedding-song.mp3 in these exports.
+        required: true
+        type: boolean
+        default: false
+      hindi_copy_approved:
+        description: Render Hindi exports only after the Hindi wording has been approved.
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: invitation-video-render-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  render:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Check out selected branch
+        uses: actions/checkout@v4
+
+      - name: Require music usage confirmation
+        env:
+          MUSIC_RIGHTS_CONFIRMED: ${{ inputs.music_rights_confirmed }}
+        run: |
+          if [[ "$MUSIC_RIGHTS_CONFIRMED" != "true" ]]; then
+            echo "Confirm music usage rights in the workflow inputs before rendering." >&2
+            exit 1
+          fi
+
+      - name: Install FFmpeg and Devanagari fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes ffmpeg fontconfig fonts-noto-core
+          fc-match -f '%{file}\n' 'Noto Sans Devanagari' | head -n 1
+
+      - name: Render and validate MP4 files
+        env:
+          HINDI_COPY_APPROVED: ${{ inputs.hindi_copy_approved }}
+        run: |
+          set -euo pipefail
+          mkdir -p dist
+          FONT_FILE="$(fc-match -f '%{file}' 'Noto Sans Devanagari' | head -n 1)"
+          test -n "$FONT_FILE"
+
+          printf '%s\n' '3-6 December 2026  |  Jabalpur' > /tmp/invitation-date-en.txt
+          printf '%s\n' 'Dubey Family invites you.' > /tmp/invitation-family-en.txt
+          printf '%s\n' '3–6 दिसंबर 2026 • जबलपुर' > /tmp/invitation-date-hi.txt
+          printf '%s\n' 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।' > /tmp/invitation-family-hi.txt
+
+          render_video() {
+            language="$1"
+            orientation="$2"
+            output_name="aditya-siddhibala-invitation-${language}-${orientation}.mp4"
+
+            if [[ "$orientation" == "vertical" ]]; then
+              width=1080
+              height=1920
+              date_size=48
+              family_size=42
+            else
+              width=1920
+              height=1080
+              date_size=38
+              family_size=34
+            fi
+
+            if [[ "$language" == "hi" ]]; then
+              date_file=/tmp/invitation-date-hi.txt
+              family_file=/tmp/invitation-family-hi.txt
+            else
+              date_file=/tmp/invitation-date-en.txt
+              family_file=/tmp/invitation-family-en.txt
+            fi
+
+            filter="[0:v]split=2[background][art];[background]scale=${width}:${height}:force_original_aspect_ratio=increase,crop=${width}:${height},boxblur=24:12,eq=brightness=-0.18[bg];[art]scale=${width}:${height}:force_original_aspect_ratio=decrease[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2,drawbox=x=0:y=ih*0.79:w=iw:h=ih*0.21:color=0x241b19@0.78:t=fill,drawtext=fontfile=${FONT_FILE}:textfile=${date_file}:fontcolor=0xf5d7a6:fontsize=${date_size}:x=(w-text_w)/2:y=h*0.825,drawtext=fontfile=${FONT_FILE}:textfile=${family_file}:fontcolor=white:fontsize=${family_size}:x=(w-text_w)/2:y=h*0.90,format=yuv420p[v]"
+
+            ffmpeg -hide_banner -loglevel error -y \
+              -loop 1 -framerate 30 -i preview.jpg \
+              -stream_loop -1 -i wedding-song.mp3 \
+              -t 29 -filter_complex "$filter" \
+              -map '[v]' -map 1:a:0 \
+              -c:v libx264 -preset medium -crf 20 -r 30 -pix_fmt yuv420p \
+              -c:a aac -b:a 160k -movflags +faststart \
+              "dist/${output_name}"
+
+            validate_video "dist/${output_name}" "$width" "$height"
+          }
+
+          validate_video() {
+            file="$1"
+            expected_width="$2"
+            expected_height="$3"
+            python3 - "$file" "$expected_width" "$expected_height" <<'PY'
+          import json
+          import subprocess
+          import sys
+
+          path, expected_width, expected_height = sys.argv[1], int(sys.argv[2]), int(sys.argv[3])
+          result = subprocess.run(
+              ['ffprobe', '-v', 'error', '-show_entries', 'format=duration:stream=codec_type,width,height', '-of', 'json', path],
+              check=True, capture_output=True, text=True
+          )
+          data = json.loads(result.stdout)
+          streams = data['streams']
+          video = next(stream for stream in streams if stream['codec_type'] == 'video')
+          assert video['width'] == expected_width and video['height'] == expected_height, video
+          assert any(stream['codec_type'] == 'audio' for stream in streams), 'audio stream missing'
+          duration = float(data['format']['duration'])
+          assert 0 < duration <= 29, f'unexpected duration: {duration}'
+          print(f'Validated {path}: {video["width"]}x{video["height"]}, {duration:.2f}s, audio present')
+          PY
+            ffmpeg -hide_banner -loglevel error -i "$file" -f null -
+          }
+
+          render_video en vertical
+          render_video en horizontal
+          if [[ "$HINDI_COPY_APPROVED" == "true" ]]; then
+            render_video hi vertical
+            render_video hi horizontal
+            echo 'Hindi wording was marked approved for this run.' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Hindi exports were skipped and remain pending approval.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+          printf '\nVideo files were decoded and validated for duration, dimensions, and audio.\n' >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload MP4 artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: aditya-siddhibala-invitation-videos
+          path: dist/*.mp4
+          if-no-files-found: error
+          retention-days: 14
