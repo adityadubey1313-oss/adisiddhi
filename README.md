@@ -1,52 +1,34 @@
 # Aditya & Siddhibala Wedding Invitation
 
-This static invitation is designed for GitHub Pages and keeps the family details, schedule, venue map links, and language copy in a single central configuration file.
+This is a static, GitHub Pages-compatible invitation. Ceremony details, dates, times, venues, family names, and translations are maintained in `invitation-data.js`; the browser builds both the schedule and downloadable calendar from those events.
 
-## Included files
-- `index.html` — homepage structure and presentation
-- `styles.css` — page styling and responsive design
-- `invitation-data.js` — centralised invitation data and translations
-- `app.js` — rendering logic, countdown, calendar generation, and language switching
-- `invitation.ics` — downloadable wedding calendar generated from the same source data
-- `hindi-draft.md` — draft Hindi wording awaiting approval before finalising Hindi copy
-- `preview.jpg` — existing couple artwork reused as the hero artwork
-- `wedding-song.mp3` — existing music track retained as the preferred soundtrack
+## Site
+- `index.html`, `styles.css`, and `app.js` implement the bilingual invitation and responsive presentation.
+- `preview.jpg` is used once as the opening artwork. The Moments section is text-led so the artwork is not repeated.
+- The summary countdown targets the Sunday wedding ceremony start stored in the event data (6 December 2026, 9:00 AM IST).
+- Venue directions, phone links, WhatsApp sharing, the language selector, opening replay, and the ten-event calendar download remain available.
+- `hindi-draft.md` is still provisional; Hindi site wording has not been approved.
 
-## Supported features
-- English and Hindi interface toggle
-- Countdown to the main wedding date on 6 December 2026
-- Chronological event schedule with the exact ten ceremony entries supplied
-- Venue cards with map links and contact numbers
-- Family section with the approved parent names
-- Downloadable `.ics` file for all ten events
-- WhatsApp share link
-- Minimal opening animation with replay control and reduced-motion support
+## Video workflow
 
-## Video export status
-This environment does not currently have a working local FFmpeg installation. The repository is prepared for the four MP4 exports, but the actual export files have not been generated and verified here. Use the commands below once FFmpeg is installed locally.
+`.github/workflows/render-invitation-videos.yml` is a separate, manual-only workflow. It does not deploy the site, publish videos, or add MP4 files to the repository. It renders the existing `preview.jpg` in vertical and horizontal compositions and uploads MP4s as a GitHub Actions artifact.
 
-## Local video rendering commands
+The four possible outputs are `aditya-siddhibala-invitation-en-vertical.mp4`, `aditya-siddhibala-invitation-en-horizontal.mp4`, `aditya-siddhibala-invitation-hi-vertical.mp4`, and `aditya-siddhibala-invitation-hi-horizontal.mp4`.
 
-```bash
-ffmpeg -y -loop 1 -i preview.jpg -i wedding-song.mp3 -t 29 -vf "scale=1080:1920:force_original_aspect_ratio=decrease,pad=1080:1920:(ow-iw)/2:(oh-ih)/2,drawtext=text='ADITYA & SIDDHIBALA':fontcolor=white:fontsize=96:fontfile='C:\\Windows\\Fonts\\Garamond.ttf':x=(w-text_w)/2:y=h*0.72,drawtext=text='Dubey Family invites you.':fontcolor=#f4d39b:fontsize=42:fontfile='C:\\Windows\\Fonts\\Garamond.ttf':x=(w-text_w)/2:y=h*0.82" -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -c:a aac -shortest aditya-siddhibala-invitation-en-vertical.mp4
+To use it after the workflow is available in the repository's default branch:
+1. Open the repository's **Actions** tab and select **Render invitation videos**.
+2. Choose **Run workflow**. Confirm `music_rights_confirmed` only if you have verified permission to use `wedding-song.mp3` in these exports.
+3. Leave `hindi_copy_approved` unchecked while the Hindi draft is pending. The run then creates the two English files and records that Hindi exports were skipped pending approval.
+4. After approving `hindi-draft.md`, run it again with `hindi_copy_approved` checked to create all four variants.
+5. Open the completed workflow run and download the `aditya-siddhibala-invitation-videos` artifact. Artifacts are retained for 14 days.
 
-ffmpeg -y -loop 1 -i preview.jpg -i wedding-song.mp3 -t 29 -vf "scale=1920:1080:force_original_aspect_ratio=decrease,pad=1920:1080:(ow-iw)/2:(oh-ih)/2,drawtext=text='ADITYA & SIDDHIBALA':fontcolor=white:fontsize=92:fontfile='C:\\Windows\\Fonts\\Garamond.ttf':x=(w-text_w)/2:y=h*0.74,drawtext=text='Dubey Family invites you.':fontcolor=#f4d39b:fontsize=34:fontfile='C:\\Windows\\Fonts\\Garamond.ttf':x=(w-text_w)/2:y=h*0.82" -c:v libx264 -preset slow -crf 18 -pix_fmt yuv420p -c:a aac -shortest aditya-siddhibala-invitation-en-horizontal.mp4
-```
+Each rendered file is checked for MP4 decoding, duration (at most 29 seconds), expected dimensions, and an audio stream before upload. No video exports have been generated by this local review.
 
-The Hindi versions should be rendered with the approved Hindi draft text and the same soundtrack, once the Hindi wording is signed off.
+## Review safety
 
-## GitHub Pages safety
-- This is a static repository and the current deployment flow already targets GitHub Pages.
-- The working branch is `redesign/aditya-siddhibala-invitation` and the production branch remains protected.
-- No automatic publishing occurs from this branch.
+The redesign is on the local branch `redesign/invitation-polish`. Open `index.html` in a browser to review it; no changes have been pushed or deployed. The existing Pages workflow continues to deploy only pushes to `main`. Merge or publish only after review and approval.
 
-## Review and publish
-1. Open the branch locally and review the design in a browser.
-2. Confirm the English wording, dates, and schedule.
-3. Approve the Hindi draft in `hindi-draft.md` before finalising Hindi copy or exported video text.
-4. If the design is approved, publish the branch to GitHub Pages in the normal repository settings or via the project’s configured workflow.
-
-## Known audit notes
-- Only the original `preview.jpg` and `wedding-song.mp3` are present in the repository, so additional photography is not available yet.
-- The repository has no live FFmpeg or Node installation in this environment, so no actual MP4 video file can be validated here until the toolchain is installed.
-- The workflow remains a static GitHub Pages deploy and was not changed to publish the redesign automatically.
+## Pending verification
+- The existing Hotel Gulzar directions value is a general Google Maps search URL, not a verified destination pin. No coordinates or replacement pin have been guessed; provide the exact Hotel Gulzar map link to make that direction destination verifiable.
+- The soundtrack's usage rights have not been verified. The video workflow requires explicit confirmation before rendering.
+- Hindi wording remains pending approval, and Hindi exports remain gated.

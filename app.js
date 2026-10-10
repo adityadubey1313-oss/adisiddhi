@@ -3,19 +3,40 @@ const appState = {
 };
 
 const { translations, events, venues, family, couple, familyLine } = invitationData;
+const weddingEvent = events.find((event) => event.id === 'baraat-welcome');
+const receptionEvent = events.find((event) => event.id === 'reception-dinner');
 
-function formatDisplayDate(dateString) {
-  const date = new Date(dateString + 'T00:00:00');
-  return new Intl.DateTimeFormat('en-IN', {
+function formatDisplayDate(dateString, lang = appState.lang, options = {}) {
+  const date = new Date(`${dateString}T12:00:00+05:30`);
+  return new Intl.DateTimeFormat(lang === 'hi' ? 'hi-IN' : 'en-IN', {
+    timeZone: 'Asia/Kolkata',
     day: 'numeric',
-    month: 'short',
-    year: 'numeric'
+    month: 'long',
+    year: 'numeric',
+    ...options
   }).format(date);
 }
 
 function getText(value, lang = appState.lang) {
   if (typeof value === 'string') return value;
-  return value[lang] || value.en;
+  if (!value) return '';
+  return value[lang] || value.en || '';
+}
+
+function setText(id, value) {
+  const element = document.getElementById(id);
+  if (element) element.textContent = value;
+}
+
+function formatEventTime(time) {
+  const [hour, minute] = time.split(':').map(Number);
+  const suffix = hour >= 12 ? 'PM' : 'AM';
+  return `${hour % 12 || 12}:${String(minute).padStart(2, '0')} ${suffix}`;
+}
+
+function formatEventRange(event) {
+  const start = formatEventTime(event.start);
+  return event.end ? `${start}–${formatEventTime(event.end)}` : `${start} onwards`;
 }
 
 function safePhoneLink(number) {
@@ -37,52 +58,50 @@ function setLanguage(lang) {
   });
 
   const t = translations[lang];
-  const introTag = document.getElementById('introTag');
-  const introName = document.getElementById('introName');
-  const introInvite = document.getElementById('introInvite');
-  const introDate = document.getElementById('introDate');
-  const openInvitation = document.getElementById('openInvitation');
-  const replayButton = document.getElementById('replayButton');
-  const mainHeading = document.getElementById('mainHeading');
-  const mainNames = document.getElementById('mainNames');
-  const familyLineEl = document.getElementById('familyLine');
-  const scheduleTitle = document.getElementById('scheduleTitle');
-  const venueTitle = document.getElementById('venueTitle');
-  const familyTitle = document.getElementById('familyTitle');
-  const galleryTitle = document.getElementById('galleryTitle');
-  const mediaTitle = document.getElementById('mediaTitle');
-  const shareTitle = document.getElementById('shareTitle');
+  const textById = {
+    introTag: t.introTag,
+    introName: getText(couple, lang),
+    introInvite: t.invitationLine,
+    introDate: t.weddingMeta,
+    openInvitation: t.openingButton,
+    replayButton: t.replayButton,
+    mainHeading: t.mainHeading,
+    mainNames: getText(couple, lang),
+    countdownHeading: t.countdownHeading,
+    eventDateLabel: t.eventDateLabel,
+    ritualsLabel: t.ritualsLabel,
+    receptionLabel: t.receptionLabel,
+    venueLabel: t.venueLabel,
+    timezoneNote: t.timezoneNote,
+    galleryKicker: t.galleryKicker,
+    galleryTitle: t.galleryHeading,
+    galleryCopy: t.galleryCopy,
+    scheduleTitle: t.scheduleHeading,
+    venueTitle: t.venueHeading,
+    familyTitle: t.familyHeading,
+    familyLine: getText(familyLine, lang),
+    shareTitle: t.shareHeading,
+    downloadCalendarCaption: t.calendarDescription,
+    downloadCalendar: t.downloadCalendar,
+    whatsappShare: t.shareWhatsApp,
+    footerText: t.footerText
+  };
+
+  Object.entries(textById).forEach(([id, value]) => setText(id, value));
+  document.querySelectorAll('[data-copy]').forEach((element) => {
+    element.textContent = t[element.dataset.copy];
+  });
+
   const calendarButton = document.getElementById('downloadCalendar');
-  const whatsappButton = document.getElementById('whatsappShare');
-  const footerText = document.getElementById('footerText');
-
-  if (introTag) introTag.textContent = t.introTag;
-  if (introName) introName.textContent = getText(couple, lang);
-  if (introInvite) introInvite.textContent = t.invitationLine;
-  if (introDate) introDate.textContent = t.weddingMeta;
-  if (openInvitation) openInvitation.textContent = t.openingButton;
-  if (replayButton) replayButton.textContent = t.replayButton;
-  if (mainHeading) mainHeading.textContent = t.mainHeading;
-  if (mainNames) mainNames.textContent = getText(couple, lang);
-  if (familyLineEl) familyLineEl.textContent = getText(familyLine, lang);
-  if (scheduleTitle) scheduleTitle.textContent = t.scheduleHeading;
-  if (venueTitle) venueTitle.textContent = t.venueHeading;
-  if (familyTitle) familyTitle.textContent = t.familyHeading;
-  if (galleryTitle) galleryTitle.textContent = t.galleryHeading;
-  if (mediaTitle) mediaTitle.textContent = t.mediaHeading;
-  if (shareTitle) shareTitle.textContent = t.shareHeading;
-  if (calendarButton) {
-    calendarButton.textContent = t.downloadCalendar;
-    calendarButton.setAttribute('aria-label', t.downloadCalendar);
-  }
-  if (whatsappButton) whatsappButton.textContent = t.shareHeading;
-  if (footerText) footerText.textContent = t.footerText;
-
+  if (calendarButton) calendarButton.setAttribute('aria-label', t.downloadCalendar);
+  const countdown = document.getElementById('countdown');
+  if (countdown) countdown.setAttribute('aria-label', t.countdownAria);
+  renderWeddingDetails(lang);
   renderFamilies(lang);
   renderSchedule(lang);
   renderVenues(lang);
-  renderVideoLinks(lang);
   renderWhatsAppText(lang);
+  updateCountdown();
 }
 
 function renderFamilies(lang) {
@@ -93,18 +112,46 @@ function renderFamilies(lang) {
   const groom = family[lang].groom;
   const bride = family[lang].bride;
 
-  [
-    { title: groom.label, items: groom.parents },
-    { title: bride.label, items: bride.parents }
-  ].forEach((section) => {
+  [groom, bride].forEach((section, index) => {
     const block = document.createElement('article');
-    block.className = 'person-card';
-    block.innerHTML = `
-      <h3>${section.title}</h3>
-      ${section.items.map((person) => `<p>${person}</p>`).join('')}
-    `;
+    block.className = 'family-group';
+    const label = document.createElement('p');
+    label.className = 'family-role';
+    label.textContent = section.label;
+    const divider = document.createElement('span');
+    divider.className = 'family-divider';
+    divider.setAttribute('aria-hidden', 'true');
+    const names = document.createElement('div');
+    names.className = 'family-names';
+    section.parents.forEach((person) => {
+      const name = document.createElement('p');
+      name.textContent = person;
+      names.appendChild(name);
+    });
+    block.dataset.family = index === 0 ? 'groom' : 'bride';
+    block.append(label, divider, names);
     familyContent.appendChild(block);
   });
+}
+
+function renderWeddingDetails(lang) {
+  const weddingDate = document.getElementById('weddingDateDetail');
+  const ritualsTime = document.getElementById('ritualsTimeDetail');
+  const receptionTime = document.getElementById('receptionTimeDetail');
+  const venueName = document.getElementById('weddingVenueDetail');
+  const directions = document.getElementById('mainDirections');
+  const hotel = venues[weddingEvent.venueId];
+
+  if (weddingDate) {
+    weddingDate.textContent = formatDisplayDate(weddingEvent.date, lang, { weekday: 'long' });
+  }
+  if (ritualsTime) ritualsTime.textContent = formatEventRange(weddingEvent);
+  if (receptionTime) receptionTime.textContent = formatEventRange(receptionEvent);
+  if (venueName) venueName.textContent = `${getText(hotel.name, lang)}, Jabalpur`;
+  if (directions) {
+    directions.href = hotel.mapsUrl;
+    directions.textContent = translations[lang].viewDirections;
+  }
 }
 
 function renderSchedule(lang) {
@@ -113,37 +160,55 @@ function renderSchedule(lang) {
 
   schedule.innerHTML = '';
 
-  events.forEach((event) => {
-    const item = document.createElement('article');
-    item.className = 'event-card';
+  const groupedEvents = events.reduce((groups, event) => {
+    const dayEvents = groups.get(event.date) || [];
+    dayEvents.push(event);
+    groups.set(event.date, dayEvents);
+    return groups;
+  }, new Map());
 
-    const date = new Date(event.date + 'T00:00:00');
-    const dateText = new Intl.DateTimeFormat('en-IN', {
-      day: 'numeric',
-      month: 'short',
-      year: 'numeric'
-    }).format(date);
+  Array.from(groupedEvents.entries()).forEach(([dateString, dayEvents], index) => {
+    const daySection = document.createElement('section');
+    daySection.className = 'schedule-day';
+    daySection.style.setProperty('--day-index', index);
 
-    const starts = event.start ? `${event.start}` : 'TBA';
-    const ends = event.end ? `– ${event.end}` : 'onwards';
-    const venueText = venues[event.venueId].name[lang];
+    const dayHeading = document.createElement('h3');
+    dayHeading.className = 'schedule-day-heading';
+    dayHeading.textContent = `${getText(dayEvents[0].day, lang)}, ${formatDisplayDate(dateString, lang)}`;
+    daySection.appendChild(dayHeading);
 
-    item.innerHTML = `
-      <div class="event-date">
-        <strong>${new Intl.DateTimeFormat('en-IN', { day: 'numeric' }).format(date)}</strong>
-        <span>${new Intl.DateTimeFormat('en-IN', { month: 'short' }).format(date)}</span>
-      </div>
-      <div class="event-main">
-        <h3>${getText(event.title, lang)}</h3>
-        <p>${getText(event.day, lang)}, ${dateText}</p>
-        <p>${starts} ${ends}</p>
-        <p>${venueText}</p>
-        ${event.note ? `<p>${getText(event.note, lang)}</p>` : ''}
-      </div>
-      <div class="event-badge">${event.venueId === 'hotelGulzar' ? 'Jabalpur' : 'Wright Town'}</div>
-    `;
+    const timeline = document.createElement('ol');
+    timeline.className = 'event-timeline';
+    dayEvents.forEach((event) => {
+      const venue = venues[event.venueId];
+      const item = document.createElement('li');
+      item.className = 'event-item';
 
-    schedule.appendChild(item);
+      const time = document.createElement('p');
+      time.className = 'event-time';
+      time.textContent = formatEventRange(event);
+
+      const title = document.createElement('h4');
+      title.textContent = getText(event.title, lang);
+
+      const venueLink = document.createElement('a');
+      venueLink.className = 'event-venue';
+      venueLink.href = venue.mapsUrl;
+      venueLink.target = '_blank';
+      venueLink.rel = 'noopener noreferrer';
+      venueLink.textContent = getText(venue.name, lang);
+
+      item.append(time, title, venueLink);
+      if (event.guestNote) {
+        const note = document.createElement('p');
+        note.className = 'event-note';
+        note.textContent = getText(event.guestNote, lang);
+        item.appendChild(note);
+      }
+      timeline.appendChild(item);
+    });
+    daySection.appendChild(timeline);
+    schedule.appendChild(daySection);
   });
 }
 
@@ -160,35 +225,11 @@ function renderVenues(lang) {
       <h3>${getText(venue.name, lang)}</h3>
       <p>${getText(venue.address, lang)}</p>
       <div class="venue-links">
-        <a class="link-pill" href="${venue.mapsUrl}" target="_blank" rel="noreferrer">${translations[lang].viewDirections}</a>
-        ${venue.contacts.map((phone) => `<a class="link-pill" href="${safePhoneLink(phone)}">${translations[lang].callNow}</a>`).join('')}
+        <a class="button-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer">${translations[lang].viewDirections}</a>
+        ${venue.contacts.map((phone) => `<a class="button-link button-link-light" href="${safePhoneLink(phone)}" aria-label="${translations[lang].callNow} ${phone}">${translations[lang].callNow}</a>`).join('')}
       </div>
     `;
     venueGrid.appendChild(card);
-  });
-}
-
-function renderVideoLinks(lang) {
-  const container = document.getElementById('videoList');
-  if (!container) return;
-
-  container.innerHTML = '';
-
-  const variants = invitationData.videoVariants.filter((variant) => variant.lang === lang || lang === 'en' || lang === 'hi');
-
-  variants.forEach((variant) => {
-    const card = document.createElement('article');
-    card.className = 'video-card';
-    const fileExists = false;
-    const href = fileExists ? variant.file : '#';
-    const labelText = fileExists ? translations[lang].watchVideo : translations[lang].unavailableVideo;
-
-    card.innerHTML = `
-      <h3>${variant.label}</h3>
-      <p>${variant.ratio} • ${translations[lang].unavailableVideo}</p>
-      <a href="${href}" ${fileExists ? '' : 'aria-disabled="true"'}>${labelText}</a>
-    `;
-    container.appendChild(card);
   });
 }
 
@@ -204,7 +245,7 @@ function renderWhatsAppText(lang) {
 }
 
 function updateCountdown() {
-  const targetDate = new Date('2026-12-06T09:00:00+05:30');
+  const targetDate = new Date(`${weddingEvent.date}T${weddingEvent.start}:00+05:30`);
   const now = new Date();
   const delta = Math.max(targetDate.getTime() - now.getTime(), 0);
 
@@ -213,15 +254,14 @@ function updateCountdown() {
   const minutes = Math.floor((delta / (1000 * 60)) % 60);
   const seconds = Math.floor((delta / 1000) % 60);
 
-  document.getElementById('daysValue').textContent = String(days).padStart(2, '0');
-  document.getElementById('hoursValue').textContent = String(hours).padStart(2, '0');
-  document.getElementById('minutesValue').textContent = String(minutes).padStart(2, '0');
-  document.getElementById('secondsValue').textContent = String(seconds).padStart(2, '0');
-
-  document.getElementById('daysLabel').textContent = translations[appState.lang].countDownDays;
-  document.getElementById('hoursLabel').textContent = translations[appState.lang].countDownHours;
-  document.getElementById('minutesLabel').textContent = translations[appState.lang].countDownMinutes;
-  document.getElementById('secondsLabel').textContent = translations[appState.lang].countDownSeconds;
+  setText('daysValue', String(days).padStart(2, '0'));
+  setText('hoursValue', String(hours).padStart(2, '0'));
+  setText('minutesValue', String(minutes).padStart(2, '0'));
+  setText('secondsValue', String(seconds).padStart(2, '0'));
+  setText('daysLabel', translations[appState.lang].countDownDays);
+  setText('hoursLabel', translations[appState.lang].countDownHours);
+  setText('minutesLabel', translations[appState.lang].countDownMinutes);
+  setText('secondsLabel', translations[appState.lang].countDownSeconds);
 }
 
 function createIcsContent() {
@@ -245,7 +285,8 @@ function createIcsContent() {
     const startDate = event.date.replace(/-/g, '') + 'T' + event.start.replace(':', '') + '00';
     const venue = venues[event.venueId];
     const eventTitle = getText(event.title, 'en');
-    const description = `${getText(event.note, 'en') || ''}; Venue: ${getText(venue.name, 'en')}`;
+    const note = getText(event.guestNote, 'en');
+    const description = [note, `Venue: ${getText(venue.name, 'en')}`].filter(Boolean).join('; ');
 
     lines.push('BEGIN:VEVENT');
     lines.push(`UID:${event.id}@adisiddhi`);
@@ -257,7 +298,7 @@ function createIcsContent() {
     }
     lines.push(`SUMMARY:${eventTitle}`);
     lines.push(`DESCRIPTION:${description.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n')}`);
-    lines.push(`LOCATION:${getText(venue.name, 'en').replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,')}`);
+    lines.push(`LOCATION:${`${getText(venue.name, 'en')}, ${getText(venue.address, 'en')}`.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,')}`);
     lines.push('END:VEVENT');
   });
 
@@ -274,7 +315,7 @@ function downloadCalendar() {
   document.body.appendChild(link);
   link.click();
   link.remove();
-  URL.revokeObjectURL(url);
+  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function init() {
@@ -286,6 +327,7 @@ function init() {
   if (openButton) {
     openButton.addEventListener('click', () => {
       document.getElementById('mainContent').classList.remove('hidden');
+      document.body.classList.remove('invitation-closed');
       document.getElementById('heroSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
       if (introScreen) introScreen.classList.add('hidden');
     });
@@ -308,7 +350,6 @@ function init() {
   }
 
   setLanguage(appState.lang);
-  updateCountdown();
   setInterval(updateCountdown, 1000);
 }
 
