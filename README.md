@@ -6,7 +6,7 @@ This is a static, GitHub Pages-compatible invitation. Ceremony details, dates, t
 - `index.html`, `styles.css`, and `app.js` implement the bilingual invitation and responsive presentation.
 - `preview.jpg` is used once as the opening artwork. The Moments section is text-led so the artwork is not repeated.
 - The summary countdown targets the Sunday wedding ceremony start stored in the event data (6 December 2026, 9:00 AM IST).
-- Venue directions, phone links, WhatsApp sharing, the language selector, opening replay, and the ten-event calendar download remain available.
+- Venue directions, the consolidated contact panel, WhatsApp sharing, the language selector, opening replay, and the ten-event calendar download remain available.
 - `hindi-draft.md` is still provisional; Hindi site wording has not been approved.
 
 ## Video workflow
@@ -29,6 +29,6 @@ Each rendered file is checked for MP4 decoding, duration (at most 29 seconds), e
 The redesign is on the local branch `redesign/invitation-polish`. Open `index.html` in a browser to review it; no changes have been pushed or deployed. The existing Pages workflow continues to deploy only pushes to `main`. Merge or publish only after review and approval.
 
 ## Pending verification
-- The existing Hotel Gulzar directions value is a general Google Maps search URL, not a verified destination pin. No coordinates or replacement pin have been guessed; provide the exact Hotel Gulzar map link to make that direction destination verifiable.
+- Hotel Gulzar directions retain the existing Google Maps search URL from `invitation-data.js`; it has not been replaced with unverified coordinates or a guessed destination pin.
 - The soundtrack's usage rights have not been verified. The video workflow requires explicit confirmation before rendering.
 - Hindi wording remains pending approval, and Hindi exports remain gated.

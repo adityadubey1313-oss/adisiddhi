@@ -80,12 +80,18 @@ function setLanguage(lang) {
     familyLine: getText(familyLine, lang),
     shareTitle: t.shareHeading,
     downloadCalendarCaption: t.calendarDescription,
-    downloadCalendar: t.downloadCalendar,
+    downloadCalendarLabel: t.downloadCalendar,
     whatsappShare: t.shareWhatsApp,
+    whatsappShareLabel: t.shareWhatsApp,
+    callActionLabel: t.call,
+    contactDialogTitle: t.contactSheetTitle,
+    contactDialogDescription: t.contactSheetAria,
     footerText: t.footerText
   };
 
   Object.entries(textById).forEach(([id, value]) => setText(id, value));
+  const closeContactsButton = document.getElementById('closeContacts');
+  if (closeContactsButton) closeContactsButton.setAttribute('aria-label', t.contactSheetClose);
   document.querySelectorAll('[data-copy]').forEach((element) => {
     element.textContent = t[element.dataset.copy];
   });
@@ -98,6 +104,7 @@ function setLanguage(lang) {
   renderFamilies(lang);
   renderSchedule(lang);
   renderVenues(lang);
+  renderContacts(lang);
   renderWhatsAppText(lang);
   updateCountdown();
 }
@@ -226,10 +233,39 @@ function renderVenues(lang) {
       <p>${getText(venue.address, lang)}</p>
       <div class="venue-links">
         <a class="button-link directions-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer" aria-label="${translations[lang].directionsTo} ${getText(venue.name, lang)}">${directionsIcon()}<span>${translations[lang].viewDirections}</span></a>
-        ${venue.contacts.map((phone) => `<a class="button-link button-link-light" href="${safePhoneLink(phone)}" aria-label="${translations[lang].callNow} ${phone}">${translations[lang].callNow}</a>`).join('')}
       </div>
     `;
     venueGrid.appendChild(card);
+  });
+}
+
+function renderContacts(lang) {
+  const contactGroups = document.getElementById('contactGroups');
+  if (!contactGroups) return;
+
+  contactGroups.innerHTML = '';
+
+  Object.values(invitationData.contacts).forEach((contact) => {
+    const venue = venues[contact.venueId];
+    const group = document.createElement('section');
+    group.className = 'contact-group';
+
+    const heading = document.createElement('h3');
+    heading.textContent = getText(venue.name, lang);
+    group.appendChild(heading);
+
+    const numberList = document.createElement('ul');
+    contact.numbers.forEach((number) => {
+      const item = document.createElement('li');
+      const link = document.createElement('a');
+      link.href = safePhoneLink(number);
+      link.textContent = number;
+      link.setAttribute('aria-label', `${translations[lang].callNow} ${number}`);
+      item.appendChild(link);
+      numberList.appendChild(item);
+    });
+    group.appendChild(numberList);
+    contactGroups.appendChild(group);
   });
 }
 
@@ -320,6 +356,9 @@ function downloadCalendar() {
 
 function init() {
   const calendarButton = document.getElementById('downloadCalendar');
+  const contactDialog = document.getElementById('contactDialog');
+  const openContactsButton = document.getElementById('openContacts');
+  const closeContactsButton = document.getElementById('closeContacts');
 
   document.querySelectorAll('.lang-btn').forEach((button) => {
     button.addEventListener('click', () => setLanguage(button.dataset.lang));
@@ -327,6 +366,20 @@ function init() {
 
   if (calendarButton) {
     calendarButton.addEventListener('click', downloadCalendar);
+  }
+
+  if (contactDialog && openContactsButton && closeContactsButton) {
+    openContactsButton.addEventListener('click', () => contactDialog.showModal());
+    closeContactsButton.addEventListener('click', () => contactDialog.close());
+    contactDialog.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        contactDialog.close();
+      }
+    });
+    contactDialog.addEventListener('click', (event) => {
+      if (event.target === contactDialog) contactDialog.close();
+    });
   }
 
   setLanguage(appState.lang);

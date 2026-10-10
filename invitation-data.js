@@ -15,6 +15,16 @@ const invitationData = {
     kishoreKuti: 'Kishore Kuti, Manas Bhawan',
     hotelGulzar: 'Hotel Gulzar'
   },
+  contacts: {
+    kishoreKuti: {
+      venueId: 'kishoreKuti',
+      numbers: ['+91-9425025656', '+91-8989958989']
+    },
+    hotelGulzar: {
+      venueId: 'hotelGulzar',
+      numbers: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
+    }
+  },
   family: {
     en: {
       heading: 'With love from the family',
@@ -68,6 +78,11 @@ const invitationData = {
       viewDirections: 'Get directions',
       directionsTo: 'Directions to',
       callNow: 'Call',
+      call: 'Call',
+      contactSheetTitle: 'Contact numbers',
+      contactSheetClose: 'Close contact panel',
+      contactSheetAria: 'Contact numbers by venue',
+      venueContactHeading: 'Venue contacts',
       downloadCalendar: 'Download calendar',
       shareWhatsApp: 'Share on WhatsApp',
       calendarDescription: 'Download the full invitation calendar.',
@@ -107,6 +122,11 @@ const invitationData = {
       viewDirections: 'दिशा देखें',
       directionsTo: 'यहाँ जाने का मार्ग देखें:',
       callNow: 'कॉल करें',
+      call: 'कॉल करें',
+      contactSheetTitle: 'संपर्क संख्याएँ',
+      contactSheetClose: 'संपर्क पैनल बंद करें',
+      contactSheetAria: 'स्थानों के अनुसार संपर्क संख्याएँ',
+      venueContactHeading: 'स्थानों के संपर्क',
       downloadCalendar: 'कैलेंडर डाउनलोड करें',
       shareWhatsApp: 'व्हाट्सऐप पर साझा करें',
       calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
@@ -130,8 +150,7 @@ const invitationData = {
         en: 'Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India.',
         hi: 'नगर निगम रोड, राइट टाउन, जबलपुर, मध्य प्रदेश, भारत।'
       },
-      mapsUrl: 'https://maps.app.goo.gl/B2gr7KzgUDMbcMzq5',
-      contacts: ['+91-9425025656', '+91-8989958989']
+      mapsUrl: 'https://maps.app.goo.gl/B2gr7KzgUDMbcMzq5'
     },
     hotelGulzar: {
       id: 'hotelGulzar',
@@ -143,8 +162,7 @@ const invitationData = {
         en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
         hi: 'मदन महल चौक से शंकराचार्य चौक रोड, महानंद, जबलपुर, मध्य प्रदेश, भारत।'
       },
-      mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur',
-      contacts: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
+      mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur'
     }
   },
   events: [
