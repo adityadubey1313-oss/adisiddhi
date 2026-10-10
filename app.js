@@ -43,6 +43,10 @@ function safePhoneLink(number) {
   return 'tel:' + number.replace(/[^\d+]/g, '');
 }
 
+function directionsIcon() {
+  return '<svg class="directions-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z"></path><circle cx="12" cy="10" r="2.25"></circle></svg>';
+}
+
 function setLanguage(lang) {
   appState.lang = lang;
 
@@ -63,20 +67,14 @@ function setLanguage(lang) {
     introName: getText(couple, lang),
     introInvite: t.invitationLine,
     introDate: t.weddingMeta,
-    openInvitation: t.openingButton,
-    replayButton: t.replayButton,
-    mainHeading: t.mainHeading,
-    mainNames: getText(couple, lang),
     countdownHeading: t.countdownHeading,
     eventDateLabel: t.eventDateLabel,
     ritualsLabel: t.ritualsLabel,
     receptionLabel: t.receptionLabel,
     venueLabel: t.venueLabel,
     timezoneNote: t.timezoneNote,
-    galleryKicker: t.galleryKicker,
-    galleryTitle: t.galleryHeading,
-    galleryCopy: t.galleryCopy,
     scheduleTitle: t.scheduleHeading,
+    scheduleIntro: t.scheduleIntro,
     venueTitle: t.venueHeading,
     familyTitle: t.familyHeading,
     familyLine: getText(familyLine, lang),
@@ -150,7 +148,8 @@ function renderWeddingDetails(lang) {
   if (venueName) venueName.textContent = `${getText(hotel.name, lang)}, Jabalpur`;
   if (directions) {
     directions.href = hotel.mapsUrl;
-    directions.textContent = translations[lang].viewDirections;
+    directions.innerHTML = `${directionsIcon()}<span>${translations[lang].viewDirections}</span>`;
+    directions.setAttribute('aria-label', `${translations[lang].directionsTo} ${getText(hotel.name, lang)}`);
   }
 }
 
@@ -196,7 +195,8 @@ function renderSchedule(lang) {
       venueLink.href = venue.mapsUrl;
       venueLink.target = '_blank';
       venueLink.rel = 'noopener noreferrer';
-      venueLink.textContent = getText(venue.name, lang);
+      venueLink.innerHTML = `${directionsIcon()}<span>${getText(venue.name, lang)}</span>`;
+      venueLink.setAttribute('aria-label', `${translations[lang].directionsTo} ${getText(venue.name, lang)}`);
 
       item.append(time, title, venueLink);
       if (event.guestNote) {
@@ -225,7 +225,7 @@ function renderVenues(lang) {
       <h3>${getText(venue.name, lang)}</h3>
       <p>${getText(venue.address, lang)}</p>
       <div class="venue-links">
-        <a class="button-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer">${translations[lang].viewDirections}</a>
+        <a class="button-link directions-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer" aria-label="${translations[lang].directionsTo} ${getText(venue.name, lang)}">${directionsIcon()}<span>${translations[lang].viewDirections}</span></a>
         ${venue.contacts.map((phone) => `<a class="button-link button-link-light" href="${safePhoneLink(phone)}" aria-label="${translations[lang].callNow} ${phone}">${translations[lang].callNow}</a>`).join('')}
       </div>
     `;
@@ -319,27 +319,7 @@ function downloadCalendar() {
 }
 
 function init() {
-  const introScreen = document.getElementById('introScreen');
-  const openButton = document.getElementById('openInvitation');
-  const replayButton = document.getElementById('replayButton');
   const calendarButton = document.getElementById('downloadCalendar');
-
-  if (openButton) {
-    openButton.addEventListener('click', () => {
-      document.getElementById('mainContent').classList.remove('hidden');
-      document.body.classList.remove('invitation-closed');
-      document.getElementById('heroSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (introScreen) introScreen.classList.add('hidden');
-    });
-  }
-
-  if (replayButton && introScreen) {
-    replayButton.addEventListener('click', () => {
-      introScreen.classList.remove('intro-reset');
-      void introScreen.offsetWidth;
-      introScreen.classList.add('intro-reset');
-    });
-  }
 
   document.querySelectorAll('.lang-btn').forEach((button) => {
     button.addEventListener('click', () => setLanguage(button.dataset.lang));

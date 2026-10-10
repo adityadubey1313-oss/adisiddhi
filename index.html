@@ -19,7 +19,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="styles.css" />
   </head>
-  <body class="invitation-closed">
+  <body>
     <div class="page-shell">
       <header class="site-header">
         <div class="nav-wrap">
@@ -27,7 +27,6 @@
 
           <nav class="main-nav" aria-label="Main navigation">
             <a href="#home" data-copy="navHome">Home</a>
-            <a href="#moments" data-copy="navMoments">Moments</a>
             <a href="#schedule" data-copy="navSchedule">Schedule</a>
             <a href="#venues" data-copy="navVenue">Venues</a>
             <a href="#family" data-copy="navFamily">Family</a>
@@ -45,100 +44,83 @@
       <main id="home">
         <section class="hero" aria-labelledby="introName">
           <div class="hero-shell">
-            <div class="hero-card intro-screen" id="introScreen" aria-live="polite">
+            <div class="hero-artwork">
               <div class="content">
                 <p class="intro-tag" id="introTag">With love and gratitude</p>
                 <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
                 <p class="hero-subtitle" id="introInvite">Invite you to celebrate</p>
                 <div class="hero-date" id="introDate">3–6 December 2026 • Jabalpur, Madhya Pradesh</div>
-                <div class="hero-actions">
-                  <button class="primary-btn" type="button" id="openInvitation">Open Invitation</button>
-                  <button class="secondary-btn" type="button" id="replayButton">Replay opening</button>
-                </div>
               </div>
             </div>
           </div>
         </section>
 
-        <div class="hidden" id="mainContent">
-          <section class="section invitation-details" id="heroSection" aria-labelledby="mainNames">
-            <div class="invitation-heading">
-              <p class="eyebrow" id="mainHeading">Wedding Invitation</p>
-              <h1 class="names-shell" id="mainNames">Aditya &amp; Siddhibala</h1>
-            </div>
-            <div class="wedding-panel">
-              <div class="countdown-block">
-                <p class="countdown-heading" id="countdownHeading">Until we celebrate</p>
-                <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the wedding">
-                  <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
-                  <span class="countdown-separator" aria-hidden="true">:</span>
-                  <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
-                  <span class="countdown-separator" aria-hidden="true">:</span>
-                  <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
-                  <span class="countdown-separator" aria-hidden="true">:</span>
-                  <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
-                </div>
-              </div>
-              <div class="wedding-details" aria-label="Wedding details">
-                <div class="wedding-detail wedding-date-detail">
-                  <span class="detail-label" id="eventDateLabel">Wedding day</span>
-                  <strong id="weddingDateDetail"></strong>
-                </div>
-                <div class="wedding-detail">
-                  <span class="detail-label" id="ritualsLabel">Wedding rituals</span>
-                  <strong id="ritualsTimeDetail"></strong>
-                </div>
-                <div class="wedding-detail">
-                  <span class="detail-label" id="receptionLabel">Reception &amp; dinner</span>
-                  <strong id="receptionTimeDetail"></strong>
-                </div>
-                <div class="wedding-detail venue-detail">
-                  <span class="detail-label" id="venueLabel">Venue</span>
-                  <strong id="weddingVenueDetail"></strong>
-                  <a class="text-link" id="mainDirections" target="_blank" rel="noopener noreferrer">Get directions</a>
-                </div>
-              </div>
-              <p class="timezone-note" id="timezoneNote">All event times are India Standard Time (IST).</p>
-            </div>
-          </section>
-
-          <section class="moments-band" id="moments">
-            <div class="section moments-content">
-              <div class="moments-mark" aria-hidden="true">✳</div>
-              <p class="eyebrow" id="galleryKicker">A family celebration</p>
-              <h2 class="section-heading" id="galleryTitle">Moments</h2>
-              <p class="moments-copy" id="galleryCopy">Four days of tradition, blessings, and celebration in Jabalpur.</p>
-              <span class="ornament-rule" aria-hidden="true"></span>
-            </div>
-          </section>
-
-          <section class="section" id="schedule">
-            <h2 class="section-heading" id="scheduleTitle">Wedding Schedule</h2>
-            <div class="schedule-list" id="scheduleList"></div>
-          </section>
-
-          <section class="section" id="venues">
-            <h2 class="section-heading" id="venueTitle">Venue &amp; Directions</h2>
-            <div class="venue-grid" id="venueGrid"></div>
-          </section>
-
-          <section class="section" id="family">
-            <h2 class="section-heading" id="familyTitle">Family</h2>
-            <p class="family-invitation" id="familyLine">Dubey Family invites you.</p>
-            <div class="family-grid" id="familyGrid"></div>
-          </section>
-
-          <section class="section" id="share">
-            <h2 class="section-heading" id="shareTitle">Share the Invitation</h2>
-            <div class="share-wrap">
-              <p id="downloadCalendarCaption">Download the complete invitation calendar and share the celebration with your loved ones.</p>
-              <div class="venue-links">
-                <button class="button-link" id="downloadCalendar" type="button">Download calendar</button>
-                <button class="button-link button-link-light" id="whatsappShare" type="button">Share on WhatsApp</button>
+        <section class="section invitation-details" id="heroSection" aria-label="Wedding countdown and details">
+          <div class="wedding-panel">
+            <div class="countdown-block">
+              <p class="countdown-heading" id="countdownHeading">Until we celebrate</p>
+              <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the wedding">
+                <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
+                <span class="countdown-separator" aria-hidden="true">:</span>
+                <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
               </div>
             </div>
-          </section>
-        </div>
+            <div class="wedding-details" aria-label="Wedding details">
+              <div class="wedding-detail wedding-date-detail">
+                <span class="detail-label" id="eventDateLabel">Wedding day</span>
+                <strong id="weddingDateDetail"></strong>
+              </div>
+              <div class="wedding-detail">
+                <span class="detail-label" id="ritualsLabel">Wedding rituals</span>
+                <strong id="ritualsTimeDetail"></strong>
+              </div>
+              <div class="wedding-detail">
+                <span class="detail-label" id="receptionLabel">Reception &amp; dinner</span>
+                <strong id="receptionTimeDetail"></strong>
+              </div>
+              <div class="wedding-detail venue-detail">
+                <span class="detail-label" id="venueLabel">Venue</span>
+                <strong id="weddingVenueDetail"></strong>
+                <a class="text-link directions-link" id="mainDirections" target="_blank" rel="noopener noreferrer">Get directions</a>
+              </div>
+            </div>
+            <p class="timezone-note" id="timezoneNote">All event times are India Standard Time (IST).</p>
+          </div>
+        </section>
+
+        <section class="section" id="schedule">
+          <div class="section-heading-group">
+            <h2 class="section-heading" id="scheduleTitle">The Wedding Festivities</h2>
+            <p class="section-intro" id="scheduleIntro">Join our families for four days of ceremonies and celebration.</p>
+          </div>
+          <div class="schedule-list" id="scheduleList"></div>
+        </section>
+
+        <section class="section" id="venues">
+          <h2 class="section-heading" id="venueTitle">Venue &amp; Directions</h2>
+          <div class="venue-grid" id="venueGrid"></div>
+        </section>
+
+        <section class="section" id="family">
+          <h2 class="section-heading" id="familyTitle">Family</h2>
+          <p class="family-invitation" id="familyLine">Dubey Family invites you.</p>
+          <div class="family-grid" id="familyGrid"></div>
+        </section>
+
+        <section class="section" id="share">
+          <h2 class="section-heading" id="shareTitle">Share the Invitation</h2>
+          <div class="share-wrap">
+            <p id="downloadCalendarCaption">Download the complete invitation calendar and share the celebration with your loved ones.</p>
+            <div class="venue-links">
+              <button class="button-link" id="downloadCalendar" type="button">Download calendar</button>
+              <button class="button-link button-link-light" id="whatsappShare" type="button">Share on WhatsApp</button>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer class="site-footer">
