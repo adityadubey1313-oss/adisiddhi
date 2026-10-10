@@ -520,21 +520,20 @@ body {
   font-size: 0.9rem;
 }
 
-.hero-countdown {
-  display: grid;
-  justify-items: center;
-  gap: 0.45rem;
-  margin-top: 1.15rem;
+.hero-artwork .intro-tag {
+  text-transform: none;
 }
 
-.hero-countdown .countdown-heading {
-  color: rgba(255, 253, 249, 0.94);
-  font-size: 0.86rem;
+.hero-countdown {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
 .hero-countdown .countdown-row {
   width: max-content;
   max-width: 100%;
+  flex-wrap: nowrap;
   gap: 0.35rem;
   padding: 0.35rem 0.7rem;
   border: 1px solid rgba(255, 253, 249, 0.52);
@@ -1270,8 +1269,10 @@ a:hover {
 
 .action-button {
   display: inline-flex;
+  height: 44px;
   min-width: 44px;
   min-height: 44px;
+  flex: 0 0 auto;
   align-items: center;
   justify-content: center;
   gap: 0.55rem;
@@ -1284,6 +1285,7 @@ a:hover {
 
 .action-button-icon {
   width: 44px;
+  height: 44px;
   padding: 0;
 }
 

@@ -58,11 +58,10 @@ const invitationData = {
       navVenue: 'Venues',
       navFamily: 'Family',
       introTag: 'With love and gratitude',
-      invitationLine: 'Invite you to celebrate',
-      weddingMeta: '3–6 December 2026 • Jabalpur, Madhya Pradesh',
+      invitationLine: 'Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala.',
+      weddingMeta: '6 December 2026 • Jabalpur, Madhya Pradesh',
       mainNames: 'Aditya & Siddhibala',
       mainSubheading: 'Dubey Family invites you.',
-      countdownHeading: 'Until we celebrate',
       countdownAria: 'Countdown to the wedding',
       eventDateLabel: 'Wedding day',
       ritualsLabel: 'Wedding rituals',
@@ -87,12 +86,12 @@ const invitationData = {
       shareWhatsApp: 'Share on WhatsApp',
       calendarDescription: 'Download the full invitation calendar.',
       pageTitle: 'Aditya & Siddhibala | Wedding Invitation',
-      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur, 3–6 December 2026.',
+      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur on 6 December 2026.',
       countDownDays: 'Days',
       countDownHours: 'Hours',
       countDownMinutes: 'Minutes',
       countDownSeconds: 'Seconds',
-      whatsappShare: 'Hello, you are warmly invited to celebrate the wedding of Aditya & Siddhibala on 3–6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi/'
+      whatsappShare: 'Hello, the Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala on 6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi/'
     },
     hi: {
       langLabel: 'हि',
@@ -102,11 +101,10 @@ const invitationData = {
       navVenue: 'स्थान',
       navFamily: 'परिवार',
       introTag: 'प्रेम और आशीर्वाद के साथ',
-      invitationLine: 'आपको अपने शुभ विवाह की बेला में आमंत्रित करते हैं',
-      weddingMeta: '3–6 दिसंबर 2026 • जबलपुर, मध्य प्रदेश',
+      invitationLine: 'दूबे परिवार आपको आदित्य और सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है।',
+      weddingMeta: '6 दिसंबर 2026 • जबलपुर, मध्य प्रदेश',
       mainNames: 'आदित्य एवं सिद्धिबाला',
       mainSubheading: 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।',
-      countdownHeading: 'शुभ मिलन तक',
       countdownAria: 'विवाह तक की उलटी गिनती',
       eventDateLabel: 'विवाह का दिन',
       ritualsLabel: 'विवाह संस्कार',
@@ -131,12 +129,12 @@ const invitationData = {
       shareWhatsApp: 'व्हाट्सऐप पर साझा करें',
       calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
       pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण',
-      description: 'जबलपुर में 3–6 दिसंबर 2026 को आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण।',
+      description: '6 दिसंबर 2026 को जबलपुर में आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण।',
       countDownDays: 'दिन',
       countDownHours: 'घंटे',
       countDownMinutes: 'मिनट',
       countDownSeconds: 'सेकंड',
-      whatsappShare: 'नमस्कार, आदित्य एवं सिद्धिबाला के विवाह में आपको 3–6 दिसंबर 2026 को जबलपुर में सम्मिलित होने का हार्दिक निमंत्रण है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
+      whatsappShare: 'नमस्कार, दूबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
     }
   },
   venues: {
