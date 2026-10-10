@@ -43,7 +43,7 @@ a {
   color: inherit;
   text-decoration: none;
 }
-  --gold: #765323;
+
 button {
   font: inherit;
 }
@@ -57,10 +57,10 @@ button {
   position: absolute;
   width: 1px;
   height: 1px;
-  min-height: min(70svh, 700px);
+  padding: 0;
   margin: -1px;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(28, 18, 17, 0.4), rgba(28, 18, 17, 0.72)), url('preview.jpg') center 44% / cover no-repeat;
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }
@@ -149,9 +149,9 @@ button {
 }
 
 .main-nav a:hover,
-  color: #59443c;
+.main-nav a:focus-visible {
   color: var(--maroon);
-  font-size: 1.1rem;
+}
 
 .header-actions {
   display: flex;
@@ -163,26 +163,26 @@ button {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 1.45rem;
+  border: 1px solid rgba(91,28,32,0.18);
   background: rgba(255,255,255,0.38);
-  border-radius: 20px;
+  border-radius: 999px;
   padding: 0.25rem;
 }
 
-  color: #594b44;
-  font-size: 0.58rem;
-  letter-spacing: 0.025rem;
+.lang-btn {
+  border: 0;
+  background: transparent;
   padding: 0.55rem 0.8rem;
   border-radius: 999px;
   font-size: 0.75rem;
   letter-spacing: 0.12rem;
   text-transform: uppercase;
-  gap: 1.2rem;
   color: rgba(42,25,21,0.72);
+  cursor: pointer;
 }
 
 .lang-btn.active {
-  line-height: 1.3;
+  background: var(--maroon);
   color: var(--pearl);
   box-shadow: 0 10px 18px rgba(91,28,32,0.15);
 }
@@ -195,7 +195,7 @@ button {
 
 .hero-shell {
   width: min(1180px, calc(100% - 1.5rem));
-  color: #51443d;
+  margin: 0 auto;
   display: grid;
   gap: 2rem;
 }
@@ -520,6 +520,50 @@ body {
   font-size: 0.9rem;
 }
 
+.hero-countdown {
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  margin-top: 1.15rem;
+}
+
+.hero-countdown .countdown-heading {
+  color: rgba(255, 253, 249, 0.94);
+  font-size: 0.86rem;
+}
+
+.hero-countdown .countdown-row {
+  width: max-content;
+  max-width: 100%;
+  gap: 0.35rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(255, 253, 249, 0.52);
+  border-radius: 999px;
+  background: rgba(36, 25, 23, 0.48);
+  backdrop-filter: blur(5px);
+}
+
+.hero-countdown .countdown-unit {
+  min-width: 2.55rem;
+}
+
+.hero-countdown .countdown-unit strong {
+  color: var(--pearl);
+  font-size: 1.2rem;
+}
+
+.hero-countdown .countdown-unit span {
+  margin-top: 0.12rem;
+  color: rgba(255, 253, 249, 0.92);
+  font-size: 0.52rem;
+}
+
+.hero-countdown .countdown-separator {
+  padding-top: 0;
+  color: var(--gold-soft);
+  font-size: 1rem;
+}
+
 .invitation-details {
   padding-top: 0.8rem;
   padding-bottom: 2.7rem;
@@ -679,19 +723,17 @@ body {
 .schedule-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.2rem;
+  gap: 1.45rem;
 }
 
 .schedule-day {
   --day-ink: #794047;
   --day-wash: #fbf7f3;
   min-width: 0;
-  padding: 1.45rem 1.5rem 1.35rem;
+  padding: 1.55rem 1.55rem 1.45rem;
   border-top: 3px solid var(--day-ink);
   background-color: var(--day-wash);
-  background-image:
-    repeating-linear-gradient(0deg, rgba(65, 47, 36, 0.018) 0 1px, transparent 1px 5px),
-    radial-gradient(ellipse at 100% 0, rgba(100, 44, 50, 0.055), transparent 68%);
+  background-image: none;
   animation: arrive 0.5s ease both;
 }
 
@@ -714,7 +756,7 @@ body {
 }
 
 .schedule-day-heading {
-  margin: 0 0 1.25rem;
+  margin: 0 0 1.45rem;
   color: var(--day-ink);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.5rem;
@@ -725,8 +767,8 @@ body {
 .event-timeline {
   position: relative;
   display: grid;
-  gap: 1.2rem;
-  margin: 0.18rem 0 0.08rem;
+  gap: 1.4rem;
+  margin: 0;
   padding: 0 0 0 0.95rem;
   list-style: none;
 }
@@ -744,6 +786,7 @@ body {
 .event-item {
   position: relative;
   min-width: 0;
+  padding: 0.55rem 0;
 }
 
 .event-item::before {
@@ -759,7 +802,7 @@ body {
 }
 
 .event-time {
-  margin: 0 0 0.1rem;
+  margin: 0 0 0.28rem;
   color: var(--day-ink);
   font-size: 0.7rem;
   font-weight: 600;
@@ -767,7 +810,7 @@ body {
 }
 
 .event-item h4 {
-  margin: 0;
+  margin: 0 0 0.16rem;
   color: var(--ink);
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: 1.27rem;
@@ -780,7 +823,7 @@ body {
   align-items: baseline;
   gap: 0.35rem;
   max-width: 100%;
-  margin-top: 0.22rem;
+  margin-top: 0.32rem;
   color: #66574f;
   font-size: 0.75rem;
   text-decoration: underline;
@@ -789,7 +832,7 @@ body {
 }
 
 .event-note {
-  margin: 0.35rem 0 0;
+  margin: 0.45rem 0 0;
   color: #51443d;
   font-size: 0.72rem;
   font-style: italic;
@@ -1035,6 +1078,19 @@ a:hover {
     font-size: 3.2rem;
   }
 
+  .hero-countdown {
+    margin-top: 0.9rem;
+  }
+
+  .hero-countdown .countdown-row {
+    gap: 0.2rem;
+    padding: 0.3rem 0.5rem;
+  }
+
+  .hero-countdown .countdown-unit {
+    min-width: 2.15rem;
+  }
+
   .hero-date {
     font-size: 0.78rem;
     line-height: 1.5;
@@ -1118,15 +1174,15 @@ a:hover {
   }
 
   .schedule-day {
-    padding: 1.3rem 1.05rem 1.2rem;
+    padding: 1.4rem 1.05rem 1.25rem;
   }
 
   .event-timeline {
-    gap: 1.1rem;
+    gap: 1.2rem;
   }
 
   .schedule-day-heading {
-    margin-bottom: 1.1rem;
+    margin-bottom: 1.3rem;
   }
 
   .family-grid {
