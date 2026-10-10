@@ -1,0 +1,318 @@
+const invitationData = {
+  siteUrl: 'https://adityadubey1313-oss.github.io/adisiddhi/',
+  eventDate: '2026-12-06',
+  primaryHero: 'preview.jpg',
+  musicAsset: 'wedding-song.mp3',
+  couple: {
+    en: 'Aditya & Siddhibala',
+    hi: 'आदित्य एवं सिद्धिबाला'
+  },
+  familyLine: {
+    en: 'Dubey Family invites you.',
+    hi: 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।'
+  },
+  venueLabels: {
+    kishoreKuti: 'Kishore Kuti, Manas Bhawan',
+    hotelGulzar: 'Hotel Gulzar'
+  },
+  family: {
+    en: {
+      heading: 'With love from the family',
+      groom: {
+        label: 'Groom\'s parents',
+        parents: ['Smt Saroj Dubey', 'Shree Purushottam Dubey']
+      },
+      bride: {
+        label: 'Bride\'s parents',
+        parents: ['Smt Niharika Dubey', 'Shree Sushant Kumar Dubey']
+      }
+    },
+    hi: {
+      heading: 'पारिवारिक आशीर्वाद',
+      groom: {
+        label: 'वर के माता-पिता',
+        parents: ['श्रीमती सरोज दूबे', 'श्री पुरुषोत्तम दूबे']
+      },
+      bride: {
+        label: 'वधू के माता-पिता',
+        parents: ['श्रीमती निहारिका दूबे', 'श्री सुषांत कुमार दूबे']
+      }
+    }
+  },
+  translations: {
+    en: {
+      langLabel: 'EN',
+      langLabelLong: 'English',
+      navHome: 'Home',
+      navSchedule: 'Schedule',
+      navVenue: 'Venues',
+      navFamily: 'Family',
+      navMedia: 'Media',
+      introTag: 'With love and gratitude',
+      invitationLine: 'Invite you to celebrate',
+      openingButton: 'Open Invitation',
+      replayButton: 'Replay opening',
+      weddingMeta: '3–6 December 2026 • Jabalpur, Madhya Pradesh',
+      mainHeading: 'Wedding Invitation',
+      mainNames: 'Aditya & Siddhibala',
+      mainSubheading: 'Dubey Family invites you.',
+      countdownLabel: 'Countdown to the wedding',
+      scheduleHeading: 'Wedding Schedule',
+      venueHeading: 'Venue & Directions',
+      familyHeading: 'Family',
+      galleryHeading: 'Moments',
+      mediaHeading: 'Invitation Videos',
+      shareHeading: 'Share the Invitation',
+      footerText: 'With love, Aditya & Siddhibala',
+      viewDirections: 'Get directions',
+      callNow: 'Call',
+      downloadCalendar: 'Download calendar',
+      watchVideo: 'Watch video',
+      unavailableVideo: 'Video exports are ready to render locally.',
+      calendarDescription: 'Download the full invitation calendar.',
+      pageTitle: 'Aditya & Siddhibala | Wedding Invitation',
+      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur, 3–6 December 2026.',
+      countDownDays: 'Days',
+      countDownHours: 'Hours',
+      countDownMinutes: 'Minutes',
+      countDownSeconds: 'Seconds',
+      whatsappShare: 'Hello, you are warmly invited to celebrate the wedding of Aditya & Siddhibala on 3–6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi/'
+    },
+    hi: {
+      langLabel: 'हि',
+      langLabelLong: 'हिन्दी',
+      navHome: 'मुख्य',
+      navSchedule: 'कार्यक्रम',
+      navVenue: 'स्थान',
+      navFamily: 'परिवार',
+      navMedia: 'मीडिया',
+      introTag: 'प्रेम और आशीर्वाद के साथ',
+      invitationLine: 'आपको अपने शुभ विवाह की बेला में आमंत्रित करते हैं',
+      openingButton: 'निमंत्रण देखें',
+      replayButton: 'प्रारंभ फिर चलाएँ',
+      weddingMeta: '3–6 दिसंबर 2026 • जबलपुर, मध्य प्रदेश',
+      mainHeading: 'विवाह निमंत्रण',
+      mainNames: 'आदित्य एवं सिद्धिबाला',
+      mainSubheading: 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।',
+      countdownLabel: 'विवाह की प्रतीक्षा',
+      scheduleHeading: 'कार्यक्रम सूची',
+      venueHeading: 'स्थान और दिशा',
+      familyHeading: 'परिवार',
+      galleryHeading: 'चित्र',
+      mediaHeading: 'निमंत्रण वीडियो',
+      shareHeading: 'निमंत्रण साझा करें',
+      footerText: 'प्रेम से, आदित्य एवं सिद्धिबाला',
+      viewDirections: 'दिशा देखें',
+      callNow: 'कॉल करें',
+      downloadCalendar: 'कैलेंडर डाउनलोड करें',
+      watchVideo: 'वीडियो देखें',
+      unavailableVideo: 'वीडियो निर्यात अभी स्थानीय रूप से बनाना होगा।',
+      calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
+      pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण',
+      description: 'जबलपुर में 3–6 दिसंबर 2026 को आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण।',
+      countDownDays: 'दिन',
+      countDownHours: 'घंटे',
+      countDownMinutes: 'मिनट',
+      countDownSeconds: 'सेकंड',
+      whatsappShare: 'नमस्कार, आदित्य एवं सिद्धिबाला के विवाह में आपको 3–6 दिसंबर 2026 को जबलपुर में सम्मिलित होने का हार्दिक निमंत्रण है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
+    }
+  },
+  venues: {
+    kishoreKuti: {
+      id: 'kishoreKuti',
+      name: {
+        en: 'Kishore Kuti, Manas Bhawan',
+        hi: 'किशोर कुटी, मानस भवन'
+      },
+      address: {
+        en: 'Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India.',
+        hi: 'नगर निगम रोड, राइट टाउन, जबलपुर, मध्य प्रदेश, भारत।'
+      },
+      mapsUrl: 'https://maps.app.goo.gl/B2gr7KzgUDMbcMzq5',
+      contacts: ['+91-9425025656', '+91-8989958989']
+    },
+    hotelGulzar: {
+      id: 'hotelGulzar',
+      name: {
+        en: 'Hotel Gulzar',
+        hi: 'होटल गुलज़ार'
+      },
+      address: {
+        en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
+        hi: 'मदन महल चौक से शंकराचार्य चौक रोड, महानंद, जबलपुर, मध्य प्रदेश, भारत।'
+      },
+      mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur',
+      contacts: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
+    }
+  },
+  events: [
+    {
+      id: 'magarmati',
+      title: {
+        en: 'Magarmati, Mandapachhadan & Matrika Pujan',
+        hi: 'मगरमाती, मंडपच्छादन और मातृका पूजन'
+      },
+      date: '2026-12-03',
+      day: { en: 'Thursday', hi: 'गुरुवार' },
+      start: '17:00',
+      end: '20:00',
+      venueId: 'kishoreKuti',
+      note: {
+        en: 'Traditional date: Agahan Krishna Dashami',
+        hi: 'परंपरागत तिथि: अगहन कृष्ण दशमी'
+      }
+    },
+    {
+      id: 'khermai',
+      title: {
+        en: 'Khermai Devi Darshan & Pujan',
+        hi: 'खेरमै देवी दर्शन और पूजन'
+      },
+      date: '2026-12-04',
+      day: { en: 'Friday', hi: 'शुक्रवार' },
+      start: '09:00',
+      end: '11:00',
+      venueId: 'kishoreKuti',
+      note: {
+        en: 'Traditional date: Agahan Krishna Ekadashi',
+        hi: 'परंपरागत तिथि: अगहन कृष्ण एकादशी'
+      }
+    },
+    {
+      id: 'shreefal-sat-haldi',
+      title: {
+        en: 'Shreefal Sat & Haldi (Haridralepan)',
+        hi: 'श्रीफल सात एवं हल्दी (हरिद्रलेपन)'
+      },
+      date: '2026-12-04',
+      day: { en: 'Friday', hi: 'शुक्रवार' },
+      start: '12:00',
+      end: '14:00',
+      venueId: 'kishoreKuti',
+      note: {
+        en: 'Lunch is associated with this event.',
+        hi: 'इस कार्यक्रम के साथ भोजन भी जुड़ा है।'
+      }
+    },
+    {
+      id: 'mehendi',
+      title: {
+        en: 'Bride\'s Mehendi',
+        hi: 'वधू का मेहंदी'
+      },
+      date: '2026-12-04',
+      day: { en: 'Friday', hi: 'शुक्रवार' },
+      start: '17:00',
+      end: '20:00',
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Traditional date: Agahan Krishna Ekadashi',
+        hi: 'परंपरागत तिथि: अगहन कृष्ण एकादशी'
+      }
+    },
+    {
+      id: 'kul-devta',
+      title: {
+        en: 'Kul-Devta (Baram-Dev) Pujan',
+        hi: 'कुल-देवता (बरम-देव) पूजन'
+      },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '12:00',
+      end: '13:00',
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Traditional date: Agahan Krishna Dwadashi',
+        hi: 'परंपरागत तिथि: अगहन कृष्ण द्वादशी'
+      }
+    },
+    {
+      id: 'floral-haldi',
+      title: {
+        en: 'Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)',
+        hi: 'फूलों की हल्दी और आशीर्वाद कार्यक्रम (पुष्प आशीर्वाद वर्षा)'
+      },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '13:00',
+      end: '14:30',
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Blessings and floral ritual',
+        hi: 'आशीर्वाद और पुष्प अनुष्ठान'
+      }
+    },
+    {
+      id: 'lagun',
+      title: {
+        en: 'Lagun Ceremony',
+        hi: 'लगुन संस्कार'
+      },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '16:00',
+      end: '17:30',
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Lagun and Tilak refer to the same ceremony here.',
+        hi: 'यहाँ लगुन और तिलक एक ही संस्कार हैं।'
+      }
+    },
+    {
+      id: 'engagement-sangeet',
+      title: {
+        en: 'Engagement & Sangeet Ceremony',
+        hi: 'सगाई और संगीत समारोह'
+      },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '19:30',
+      end: null,
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Evening celebration begins at 7:30 PM onwards.',
+        hi: 'संध्या कार्यक्रम 7:30 PM से आरंभ है।'
+      }
+    },
+    {
+      id: 'baraat-welcome',
+      title: {
+        en: 'Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)',
+        hi: 'बरात स्वागत, वरमाला, पाणिग्रहण और सप्तपदी (विवाह संस्कार)'
+      },
+      date: '2026-12-06',
+      day: { en: 'Sunday', hi: 'रविवार' },
+      start: '09:00',
+      end: '15:00',
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Traditional date: Agahan Krishna Trayodashi / Pradosh Vrat',
+        hi: 'परंपरागत तिथि: अगहन कृष्ण त्रयोदशी / प्रदोष व्रत'
+      }
+    },
+    {
+      id: 'reception-dinner',
+      title: {
+        en: 'Reception & Dinner (Aashirwad Samaroh & Preetibhoj)',
+        hi: 'रेसेप्शन और डिनर (आशीर्वाद समरोह एवं प्रीतिभोज)'
+      },
+      date: '2026-12-06',
+      day: { en: 'Sunday', hi: 'रविवार' },
+      start: '20:00',
+      end: null,
+      venueId: 'hotelGulzar',
+      note: {
+        en: 'Evening reception and dinner begin at 8:00 PM onwards.',
+        hi: 'सांय रेसेप्शन और डिनर 8:00 PM से आरंभ है।'
+      }
+    }
+  ],
+  videoVariants: [
+    { id: 'en-vertical', lang: 'en', ratio: '9:16', file: 'aditya-siddhibala-invitation-en-vertical.mp4', label: 'English • Vertical' },
+    { id: 'en-horizontal', lang: 'en', ratio: '16:9', file: 'aditya-siddhibala-invitation-en-horizontal.mp4', label: 'English • Horizontal' },
+    { id: 'hi-vertical', lang: 'hi', ratio: '9:16', file: 'aditya-siddhibala-invitation-hi-vertical.mp4', label: 'Hindi • Vertical' },
+    { id: 'hi-horizontal', lang: 'hi', ratio: '16:9', file: 'aditya-siddhibala-invitation-hi-horizontal.mp4', label: 'Hindi • Horizontal' }
+  ]
+};
+
+window.invitationData = invitationData;
