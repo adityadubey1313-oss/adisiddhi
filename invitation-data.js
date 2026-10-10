@@ -9,7 +9,7 @@ const invitationData = {
   },
   familyLine: {
     en: 'Dubey Family invites you.',
-    hi: 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।'
+    hi: 'दुबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।'
   },
   venueLabels: {
     kishoreKuti: 'Kishore Kuti, Manas Bhawan',
@@ -41,11 +41,11 @@ const invitationData = {
       heading: 'पारिवारिक आशीर्वाद',
       groom: {
         label: 'वर के माता-पिता',
-        parents: ['श्रीमती सरोज दूबे', 'श्री पुरुषोत्तम दूबे']
+        parents: ['श्रीमती सरोज दुबे', 'श्री पुरुषोत्तम दुबे']
       },
       bride: {
         label: 'वधू के माता-पिता',
-        parents: ['श्रीमती निहारिका दूबे', 'श्री सुषांत कुमार दूबे']
+        parents: ['श्रीमती निहारिका दुबे', 'श्री सुषांत कुमार दुबे']
       }
     }
   },
@@ -58,7 +58,7 @@ const invitationData = {
       navVenue: 'Venues',
       navFamily: 'Family',
       introTag: 'With love and gratitude',
-      invitationLine: 'Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala.',
+      invitationLine: 'Dubey Family invites you to celebrate',
       weddingMeta: '6 December 2026 • Jabalpur, Madhya Pradesh',
       mainNames: 'Aditya & Siddhibala',
       mainSubheading: 'Dubey Family invites you.',
@@ -67,9 +67,7 @@ const invitationData = {
       ritualsLabel: 'Wedding rituals',
       receptionLabel: 'Reception & dinner',
       venueLabel: 'Venue',
-      timezoneNote: 'All event times are India Standard Time (IST).',
       scheduleHeading: 'The Wedding Festivities',
-      scheduleIntro: 'Join our families for four days of ceremonies and celebration.',
       venueHeading: 'Venue & Directions',
       familyHeading: 'With the Blessings of Our Families',
       shareHeading: 'Share the Invitation',
@@ -101,18 +99,16 @@ const invitationData = {
       navVenue: 'स्थान',
       navFamily: 'परिवार',
       introTag: 'प्रेम और आशीर्वाद के साथ',
-      invitationLine: 'दूबे परिवार आपको आदित्य और सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है।',
+      invitationLine: 'दुबे परिवार आपको उत्सव मनाने के लिए आमंत्रित करता है।',
       weddingMeta: '6 दिसंबर 2026 • जबलपुर, मध्य प्रदेश',
       mainNames: 'आदित्य एवं सिद्धिबाला',
-      mainSubheading: 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।',
+      mainSubheading: 'दुबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।',
       countdownAria: 'विवाह तक की उलटी गिनती',
       eventDateLabel: 'विवाह का दिन',
       ritualsLabel: 'विवाह संस्कार',
       receptionLabel: 'आशीर्वाद समारोह एवं प्रीतिभोज',
       venueLabel: 'स्थान',
-      timezoneNote: 'सभी कार्यक्रमों का समय भारतीय मानक समय (IST) के अनुसार है।',
       scheduleHeading: 'विवाह उत्सव',
-      scheduleIntro: 'चार दिनों के मंगलमय समारोहों और उत्सव में हमारे परिवारों के साथ सम्मिलित हों।',
       venueHeading: 'स्थान और दिशा',
       familyHeading: 'परिवारों के आशीर्वाद से',
       shareHeading: 'निमंत्रण साझा करें',
@@ -134,7 +130,7 @@ const invitationData = {
       countDownHours: 'घंटे',
       countDownMinutes: 'मिनट',
       countDownSeconds: 'सेकंड',
-      whatsappShare: 'नमस्कार, दूबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
+      whatsappShare: 'नमस्कार, दुबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
     }
   },
   venues: {

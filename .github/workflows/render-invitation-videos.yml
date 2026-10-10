@@ -56,7 +56,7 @@ jobs:
           printf '%s\n' '3-6 December 2026  |  Jabalpur' > /tmp/invitation-date-en.txt
           printf '%s\n' 'Dubey Family invites you.' > /tmp/invitation-family-en.txt
           printf '%s\n' '3–6 दिसंबर 2026 • जबलपुर' > /tmp/invitation-date-hi.txt
-          printf '%s\n' 'दूबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।' > /tmp/invitation-family-hi.txt
+          printf '%s\n' 'दुबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।' > /tmp/invitation-family-hi.txt
 
           render_video() {
             language="$1"

@@ -71,9 +71,7 @@ function setLanguage(lang) {
     ritualsLabel: t.ritualsLabel,
     receptionLabel: t.receptionLabel,
     venueLabel: t.venueLabel,
-    timezoneNote: t.timezoneNote,
     scheduleTitle: t.scheduleHeading,
-    scheduleIntro: t.scheduleIntro,
     venueTitle: t.venueHeading,
     familyTitle: t.familyHeading,
     familyLine: getText(familyLine, lang),
@@ -81,7 +79,6 @@ function setLanguage(lang) {
     downloadCalendarCaption: t.calendarDescription,
     downloadCalendarLabel: t.downloadCalendar,
     whatsappShare: t.shareWhatsApp,
-    whatsappShareLabel: t.shareWhatsApp,
     callActionLabel: t.call,
     contactDialogTitle: t.contactSheetTitle,
     contactDialogDescription: t.contactSheetAria,
@@ -98,7 +95,10 @@ function setLanguage(lang) {
   const calendarButton = document.getElementById('downloadCalendar');
   if (calendarButton) calendarButton.setAttribute('aria-label', t.downloadCalendar);
   const whatsappButton = document.getElementById('whatsappShare');
-  if (whatsappButton) whatsappButton.setAttribute('aria-label', t.shareWhatsApp);
+  if (whatsappButton) {
+    whatsappButton.setAttribute('aria-label', t.shareWhatsApp);
+    whatsappButton.setAttribute('title', t.shareWhatsApp);
+  }
   const countdown = document.getElementById('countdown');
   if (countdown) countdown.setAttribute('aria-label', t.countdownAria);
   renderWeddingDetails(lang);

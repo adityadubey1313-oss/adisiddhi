@@ -1074,7 +1074,8 @@ a:hover {
   }
 
   .hero-title {
-    font-size: 3.2rem;
+    font-size: clamp(1.7rem, 8vw, 3.1rem);
+    white-space: nowrap;
   }
 
   .hero-countdown {
@@ -1310,6 +1311,13 @@ a:hover {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.8;
+}
+
+.whatsapp-logo {
+  display: block;
+  width: 1.55rem;
+  height: 1.55rem;
+  object-fit: contain;
 }
 
 .contact-dialog {
