@@ -78,7 +78,6 @@ function setLanguage(lang) {
     shareTitle: t.shareHeading,
     downloadCalendarCaption: t.calendarDescription,
     downloadCalendarLabel: t.downloadCalendar,
-    whatsappShare: t.shareWhatsApp,
     callActionLabel: t.call,
     contactDialogTitle: t.contactSheetTitle,
     contactDialogDescription: t.contactSheetAria,
