@@ -26,6 +26,7 @@ html {
 
 body {
   margin: 0;
+  font-size: 17px;
   font-family: 'Jost', 'Segoe UI', sans-serif;
   background:
     radial-gradient(circle at top, rgba(255,255,255,0.72), rgba(245,236,227,0.7) 32%, rgba(241,227,214,0.86) 100%),
@@ -414,6 +415,7 @@ button {
 body {
   background: var(--bg);
   color: var(--ink);
+  font-size: 17px;
   font-family: 'Jost', 'Segoe UI', sans-serif;
 }
 

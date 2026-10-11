@@ -1,0 +1,101 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//AdityaSiddhibala//WeddingInvitation//EN
+CALSCALE:GREGORIAN
+BEGIN:VTIMEZONE
+TZID:Asia/Kolkata
+BEGIN:STANDARD
+TZOFFSETFROM:+0530
+TZOFFSETTO:+0530
+TZNAME:IST
+END:STANDARD
+END:VTIMEZONE
+BEGIN:VEVENT
+UID:magarmati@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261203T170000
+DTEND;TZID=Asia/Kolkata:20261203T200000
+SUMMARY:Magarmati, Mandapachhadan & Matrika Pujan
+DESCRIPTION:Traditional date: Agahan Krishna Dashami. Venue: Kishore Kuti, Manas Bhawan, Nagar Nigam Road, Wright Town, Jabalpur.
+LOCATION:Kishore Kuti, Manas Bhawan, Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:khermai@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261204T090000
+DTEND;TZID=Asia/Kolkata:20261204T110000
+SUMMARY:Khermai Devi Darshan & Pujan
+DESCRIPTION:Traditional date: Agahan Krishna Ekadashi. Venue: Kishore Kuti, Manas Bhawan, Jabalpur.
+LOCATION:Kishore Kuti, Manas Bhawan, Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:shreefal-sat-haldi@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261204T120000
+DTEND;TZID=Asia/Kolkata:20261204T140000
+SUMMARY:Shreefal Sat & Haldi (Haridralepan)
+DESCRIPTION:Lunch is associated with this event. Venue: Kishore Kuti, Manas Bhawan, Jabalpur.
+LOCATION:Kishore Kuti, Manas Bhawan, Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:mehendi@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261204T170000
+DTEND;TZID=Asia/Kolkata:20261204T200000
+SUMMARY:Bride's Mehendi
+DESCRIPTION:Traditional date: Agahan Krishna Ekadashi. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:kul-devta@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261205T120000
+DTEND;TZID=Asia/Kolkata:20261205T130000
+SUMMARY:Kul-Devta (Baram-Dev) Pujan
+DESCRIPTION:Traditional date: Agahan Krishna Dwadashi. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:floral-haldi@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261205T130000
+DTEND;TZID=Asia/Kolkata:20261205T143000
+SUMMARY:Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)
+DESCRIPTION:Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:lagun@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261205T160000
+DTEND;TZID=Asia/Kolkata:20261205T173000
+SUMMARY:Lagun Ceremony
+DESCRIPTION:Lagun and Tilak refer to the same ceremony here. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:engagement-sangeet@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261205T193000
+SUMMARY:Engagement & Sangeet Ceremony
+DESCRIPTION:Evening celebration begins at 7:30 PM onwards. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:baraat-welcome@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261206T090000
+DTEND;TZID=Asia/Kolkata:20261206T150000
+SUMMARY:Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)
+DESCRIPTION:Traditional date: Agahan Krishna Trayodashi / Pradosh Vrat. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+BEGIN:VEVENT
+UID:reception-dinner@adisiddhi
+DTSTAMP:20261010T000000Z
+DTSTART;TZID=Asia/Kolkata:20261206T200000
+SUMMARY:Reception & Dinner (Aashirwad Samaroh & Preetibhoj)
+DESCRIPTION:Evening reception and dinner begin at 8:00 PM onwards. Venue: Hotel Gulzar, Jabalpur.
+LOCATION:Hotel Gulzar, Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India
+END:VEVENT
+END:VCALENDAR

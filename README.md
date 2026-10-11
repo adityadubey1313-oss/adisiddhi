@@ -28,6 +28,16 @@ Each rendered file is checked for MP4 decoding, duration (at most 29 seconds), e
 
 The redesign is on the local branch `redesign/invitation-polish`. Open `index.html` in a browser to review it; no changes have been pushed or deployed. The existing Pages workflow continues to deploy only pushes to `main`. Merge or publish only after review and approval.
 
+## GitHub Pages approval checklist
+
+See [GITHUB_PAGES_APPROVAL.md](GITHUB_PAGES_APPROVAL.md) for the exact repository and settings steps to approve before publishing each of the four projects to their own Pages URL.
+
+## Repository setup and final publish sequence
+
+See [REPO_SETUP_AND_PUBLISH_SEQUENCE.md](REPO_SETUP_AND_PUBLISH_SEQUENCE.md) for the actual project-to-repository mapping, one-time GitHub setup, and the final publish order.
+
+A PowerShell helper script is also included at [setup-github-repos.ps1](setup-github-repos.ps1) for preparing the repo structure without triggering any live deployment.
+
 ## Pending verification
 - Hotel Gulzar directions retain the existing Google Maps search URL from `invitation-data.js`; it has not been replaced with unverified coordinates or a guessed destination pin.
 - The soundtrack's usage rights have not been verified. The video workflow requires explicit confirmation before rendering.

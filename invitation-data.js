@@ -1,5 +1,5 @@
 const invitationData = {
-  siteUrl: 'https://adityadubey1313-oss.github.io/adisiddhi/',
+  siteUrl: 'https://adityadubey1313-oss.github.io/adisiddhi_1/',
   eventDate: '2026-12-06',
   primaryHero: 'preview.jpg',
   musicAsset: 'wedding-song.mp3',
@@ -83,13 +83,13 @@ const invitationData = {
       downloadCalendar: 'Download calendar',
       shareWhatsApp: 'Share on WhatsApp',
       calendarDescription: 'Download the full invitation calendar.',
-      pageTitle: 'Aditya & Siddhibala | Wedding Invitation',
-      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur on 6 December 2026.',
+      pageTitle: 'Aditya & Siddhibala | Wedding Invitation _1',
+      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur on 6 December 2026. Project _1.',
       countDownDays: 'Days',
       countDownHours: 'Hours',
       countDownMinutes: 'Minutes',
       countDownSeconds: 'Seconds',
-      whatsappShare: 'Hello, the Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala on 6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi/'
+      whatsappShare: 'Hello, the Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala on 6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi_1/'
     },
     hi: {
       langLabel: 'हि',
@@ -124,13 +124,13 @@ const invitationData = {
       downloadCalendar: 'कैलेंडर डाउनलोड करें',
       shareWhatsApp: 'व्हाट्सऐप पर साझा करें',
       calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
-      pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण',
-      description: '6 दिसंबर 2026 को जबलपुर में आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण।',
+      pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण _1',
+      description: '6 दिसंबर 2026 को जबलपुर में आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण। परियोजना _1।',
       countDownDays: 'दिन',
       countDownHours: 'घंटे',
       countDownMinutes: 'मिनट',
       countDownSeconds: 'सेकंड',
-      whatsappShare: 'नमस्कार, दुबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi/'
+      whatsappShare: 'नमस्कार, दुबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi_1/'
     }
   },
   venues: {
