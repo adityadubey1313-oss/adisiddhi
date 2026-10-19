@@ -1,0 +1,213 @@
+﻿const invitationData = {
+  siteUrl: 'https://adityadubey1313-oss.github.io/adisiddhi_3E/',
+  eventDate: '2026-12-06',
+  primaryHero: 'preview.jpg',
+  musicAsset: 'wedding-song.mp3',
+  couple: {
+    en: 'Siddhibala & Aditya',
+    hi: 'सिद्धिबाला एवं आदित्य'
+  },
+  familyLine: {
+    en: '',
+    hi: ''
+  },
+  venueLabels: {
+    hotelGulzar: 'Hotel Gulzar'
+  },
+  contacts: {
+    family: {
+      label: {
+        en: 'Family contacts',
+        hi: 'परिवार के संपर्क'
+      },
+      people: [
+        {
+          name: { en: 'Sushant Kumar Dubey', hi: 'श्री सुशांत कुमार दुबे' },
+          number: '+91-9425025656'
+        },
+        {
+          name: { en: 'Niharika Dubey', hi: 'श्रीमती निहारिका दुबे' },
+          number: '+91-8989958989'
+        }
+      ]
+    },
+    hotelGulzar: {
+      venueId: 'hotelGulzar',
+      numbers: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
+    }
+  },
+  family: {
+    en: {
+      heading: 'Family',
+      groom: { label: 'Parents', parents: [] },
+      bride: { label: 'Parents', parents: [] }
+    },
+    hi: {
+      heading: 'परिवार',
+      groom: { label: 'माता-पिता', parents: [] },
+      bride: { label: 'माता-पिता', parents: [] }
+    }
+  },
+  translations: {
+    en: {
+      langLabel: 'EN',
+      langLabelLong: 'English',
+      navHome: 'Home',
+      navSchedule: 'Festivities',
+      navVenue: 'Venues',
+      navFamily: 'Family',
+      introTag: 'With love and gratitude',
+      invitationLine: 'Dubey Family invites you to celebrate wedding ceremony of',
+      weddingMeta: 'Jabalpur, Madhya Pradesh',
+      mainNames: 'Siddhibala & Aditya',
+      mainSubheading: '',
+      countdownAria: 'Countdown to the wedding',
+      eventDateLabel: 'Wedding day',
+      ritualsLabel: 'Wedding rituals',
+      receptionLabel: 'Reception & dinner',
+      venueLabel: 'Venue',
+      scheduleHeading: 'The Wedding Festivities',
+      venueHeading: 'Venue & Directions',
+      familyHeading: 'Family',
+      shareHeading: 'Share the Invitation',
+      footerText: 'With love, Siddhibala & Aditya',
+      viewDirections: 'Get directions',
+      directionsTo: 'Directions to',
+      callNow: 'Call',
+      call: 'Call',
+      contactSheetTitle: 'Contact numbers',
+      contactSheetClose: 'Close contact panel',
+      contactSheetAria: 'Contact numbers by venue',
+      venueContactHeading: 'Venue contacts',
+      downloadCalendar: 'Download calendar',
+      shareWhatsApp: 'Share on WhatsApp',
+      calendarDescription: 'Download the full invitation calendar.',
+      pageTitle: 'Siddhibala & Aditya | Wedding Invitation _3E',
+      description: 'A traditional wedding invitation for Siddhibala and Aditya in Jabalpur, 6 December 2026. Project _3E.',
+      countDownDays: 'Days',
+      countDownHours: 'Hours',
+      countDownMinutes: 'Minutes',
+      countDownSeconds: 'Seconds',
+      whatsappShare: 'Hello, the Dubey Family invites you to celebrate the wedding ceremony of Siddhibala and Aditya on 6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi_3E/'
+    },
+    hi: {
+      langLabel: 'हि',
+      langLabelLong: 'हिन्दी',
+      navHome: 'मुख्य',
+      navSchedule: 'विवाह उत्सव',
+      navVenue: 'स्थान',
+      navFamily: 'परिवार',
+      introTag: 'प्रेम और आशीर्वाद के साथ',
+      invitationLine: 'दुबे परिवार आपको विवाह समारोह में सादर आमंत्रित करता है।',
+      weddingMeta: 'जबलपुर, मध्य प्रदेश',
+      mainNames: 'सिद्धिबाला एवं आदित्य',
+      mainSubheading: '',
+      countdownAria: 'विवाह तक की उलटी गिनती',
+      eventDateLabel: 'विवाह का दिन',
+      ritualsLabel: 'विवाह संस्कार',
+      receptionLabel: 'आशीर्वाद समारोह एवं प्रीतिभोज',
+      venueLabel: 'स्थान',
+      scheduleHeading: 'विवाह उत्सव',
+      venueHeading: 'स्थान और दिशा',
+      familyHeading: 'परिवार',
+      shareHeading: 'निमंत्रण साझा करें',
+      footerText: 'प्रेम से, सिद्धिबाला एवं आदित्य',
+      viewDirections: 'दिशा देखें',
+      directionsTo: 'यहाँ जाने का मार्ग देखें:',
+      callNow: 'कॉल करें',
+      call: 'कॉल करें',
+      contactSheetTitle: 'संपर्क संख्याएँ',
+      contactSheetClose: 'संपर्क पैनल बंद करें',
+      contactSheetAria: 'स्थानों के अनुसार संपर्क संख्याएँ',
+      venueContactHeading: 'स्थानों के संपर्क',
+      downloadCalendar: 'कैलेंडर डाउनलोड करें',
+      shareWhatsApp: 'व्हाट्सऐप पर साझा करें',
+      calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
+      pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण _3',
+      description: '6 दिसंबर 2026 को जबलपुर में आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण। परियोजना _3।',
+      countDownDays: 'दिन',
+      countDownHours: 'घंटे',
+      countDownMinutes: 'मिनट',
+      countDownSeconds: 'सेकंड',
+      whatsappShare: 'नमस्कार, दुबे परिवार आपको 6 दिसंबर 2026 को जबलपुर में आदित्य एवं सिद्धिबाला के विवाह का उत्सव मनाने के लिए आमंत्रित करता है। कृपया देखें: https://adityadubey1313-oss.github.io/adisiddhi_3/'
+    }
+  },
+  venues: {
+    hotelGulzar: {
+      id: 'hotelGulzar',
+      name: {
+        en: 'Hotel Gulzar',
+        hi: 'होटल गुलजार'
+      },
+      address: {
+        en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
+        hi: 'मदन महल चौक से शंकराचार्य चौक मार्ग, महानद्दा, जबलपुर, मध्य प्रदेश, भारत।'
+      },
+      mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur'
+    }
+  },
+  events: [
+    {
+      id: 'kul-devta',
+      title: { en: 'Kul-Devta (Baram-Dev) Pujan', hi: 'श्री कुल-देव (बरम-देव) पूजन' },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '12:00',
+      end: '13:00',
+      venueId: 'hotelGulzar',
+      note: { en: 'Traditional date: Agahan Krishna Dwadashi', hi: 'परंपरागत तिथि: अगहन कृष्ण द्वादशी' }
+    },
+    {
+      id: 'floral-haldi',
+      title: { en: 'Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)', hi: 'वर-वधू पर पुष्प आशीर्वाद वर्षा (फूलों की हल्दी)' },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '13:00',
+      end: '14:30',
+      venueId: 'hotelGulzar',
+      note: { en: 'Blessings and floral ritual', hi: 'आशीर्वाद और पुष्प अनुष्ठान' }
+    },
+    {
+      id: 'lagun',
+      title: { en: 'Lagun Ceremony', hi: 'लगुन संस्कार' },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '16:00',
+      end: '17:30',
+      venueId: 'hotelGulzar',
+      note: { en: 'Lagun and Tilak refer to the same ceremony here.', hi: 'यहाँ लगुन और तिलक एक ही संस्कार हैं।' }
+    },
+    {
+      id: 'engagement-sangeet',
+      title: { en: 'Engagement & Sangeet Ceremony', hi: 'सगाई और संगीत समारोह' },
+      date: '2026-12-05',
+      day: { en: 'Saturday', hi: 'शनिवार' },
+      start: '19:30',
+      end: null,
+      venueId: 'hotelGulzar',
+      note: { en: 'Evening celebration begins at 7:30 PM onwards.', hi: 'संध्या कार्यक्रम 7:30 PM से आरंभ है।' }
+    },
+    {
+      id: 'baraat-welcome',
+      title: { en: 'Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)', hi: 'बारात स्वागत, वरमाला, पाणिग्रहण, सप्तपदी संस्कार' },
+      date: '2026-12-06',
+      day: { en: 'Sunday', hi: 'रविवार' },
+      start: '09:00',
+      end: '15:00',
+      venueId: 'hotelGulzar',
+      note: { en: 'Traditional date: Agahan Krishna Trayodashi / Pradosh Vrat', hi: 'परंपरागत तिथि: अगहन कृष्ण त्रयोदशी / प्रदोष व्रत' }
+    },
+    {
+      id: 'reception-dinner',
+      title: { en: 'Reception & Dinner (Aashirwad Samaroh & Preetibhoj)', hi: 'वर-वधू आशीर्वाद समारोह एवं प्रीतिभोज' },
+      date: '2026-12-06',
+      day: { en: 'Sunday', hi: 'रविवार' },
+      start: '20:00',
+      end: null,
+      venueId: 'hotelGulzar',
+      note: { en: 'Evening reception and dinner begin at 8:00 PM onwards.', hi: 'रात्रि 8 बजे से' }
+    }
+  ]
+};
+
+window.invitationData = invitationData;
