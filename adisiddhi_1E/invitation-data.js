@@ -180,9 +180,7 @@ const invitationData = {
       day: { en: 'Wednesday' },
       start: '14:00',
       end: null,
-      venueId: null,
-      directionsUrl: 'https://maps.app.goo.gl/QnWoWT1AaJmk3urk9',
-      directionsLabel: 'Get directions to Devi Bhajan'
+      venueId: 'skywayApartment'
     },
     {
       id: 'mehendi',
@@ -240,7 +238,7 @@ const invitationData = {
     },
     {
       id: 'baraat-welcome',
-      title: { en: 'Baarat Wedding Ceremony & Phere' },
+      title: { en: 'Barat Wedding Ceremony & Phere' },
       date: '2026-12-06',
       day: { en: 'Sunday', hi: 'रविवार' },
       start: '09:00',
