@@ -1289,6 +1289,16 @@ a:hover {
   background: rgba(35, 24, 21, 0.48);
 }
 
+html:has(.contact-dialog[open]) {
+  overflow: hidden;
+}
+
+.contact-dialog-header p {
+  margin: 0.5rem 0 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .contact-dialog-header {
   display: flex;
   align-items: flex-start;
@@ -1333,6 +1343,11 @@ a:hover {
   font-size: 0.95rem;
 }
 
+.contact-group + .contact-group {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
 .contact-group ul {
   display: grid;
   gap: 0.25rem;
@@ -1344,7 +1359,10 @@ a:hover {
 .contact-group a {
   display: inline-flex;
   min-height: 40px;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 0.25rem 0;
   color: #4d2027;
   text-decoration: underline;
   text-underline-offset: 3px;

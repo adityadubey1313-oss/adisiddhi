@@ -257,7 +257,14 @@ function renderContacts(lang) {
       const link = document.createElement('a');
       const personName = getText(name, lang);
       link.href = safePhoneLink(number);
-      link.textContent = personName ? `${localizeDigits(personName, lang)}: ${number}` : number;
+      if (personName) {
+        const person = document.createElement('strong');
+        person.textContent = personName;
+        link.appendChild(person);
+      }
+      const phone = document.createElement('span');
+      phone.textContent = number;
+      link.appendChild(phone);
       link.setAttribute('aria-label', `${localizeDigits(translations[lang].callNow, lang)} ${localizeDigits(personName, lang)} ${number}`.trim());
       item.appendChild(link);
       numberList.appendChild(item);
@@ -364,7 +371,9 @@ function init() {
   }
 
   if (contactDialog && openContactsButton && closeContactsButton) {
-    openContactsButton.addEventListener('click', () => contactDialog.showModal());
+    openContactsButton.addEventListener('click', () => {
+      if (!contactDialog.open) contactDialog.showModal();
+    });
     closeContactsButton.addEventListener('click', () => contactDialog.close());
     contactDialog.addEventListener('keydown', (event) => {
       if (event.key === 'Escape') {
@@ -373,7 +382,12 @@ function init() {
       }
     });
     contactDialog.addEventListener('click', (event) => {
-      if (event.target === contactDialog) contactDialog.close();
+      if (event.target !== contactDialog) return;
+      const bounds = contactDialog.getBoundingClientRect();
+      if (event.clientX < bounds.left || event.clientX > bounds.right ||
+          event.clientY < bounds.top || event.clientY > bounds.bottom) {
+        contactDialog.close();
+      }
     });
   }
 

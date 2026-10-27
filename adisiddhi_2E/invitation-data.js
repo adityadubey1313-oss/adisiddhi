@@ -6,6 +6,13 @@ const invitationData = {
   couple: { en: 'Aditya & Siddhibala' },
   familyLine: { en: '' },
   contacts: {
+    family: {
+      label: { en: 'Family' },
+      people: [
+        { name: { en: 'Purushottam Dubey' }, number: '+91-9589680447' },
+        { name: { en: 'Saroj Dubey' }, number: '+91-8817305921' }
+      ]
+    },
     hotelGulzar: {
       venueId: 'hotelGulzar',
       numbers: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
