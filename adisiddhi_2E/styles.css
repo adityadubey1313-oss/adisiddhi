@@ -1491,13 +1491,6 @@ a:hover {
   color: var(--maroon);
 }
 
-.couple-introduction > .section-heading {
-  margin: 0 auto;
-  max-width: 36rem;
-  font-size: clamp(1.5rem, 3vw, 2rem);
-  letter-spacing: 0.025em;
-}
-
 .couple-introduction > .family-divider {
   margin: 1rem auto;
 }

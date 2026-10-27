@@ -43,7 +43,6 @@ const invitationData = {
       weddingMeta: 'RECEPTION • Sunday, 6 December 2026 • 7:00 PM onwards (IST) • Jabalpur, Madhya Pradesh',
       countdownAria: 'Countdown to the reception',
       venueHeading: 'Reception Venue & Directions',
-      familyHeading: 'With Love from the Dubey Family',
       shareHeading: 'Share the Reception Invitation',
       footerText: 'With love, Aditya & Siddhibala',
       viewDirections: 'Get directions',

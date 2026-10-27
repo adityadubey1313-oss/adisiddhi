@@ -96,7 +96,6 @@ function setLanguage(lang) {
     venueLabel: t.venueLabel,
     scheduleTitle: t.scheduleHeading,
     venueTitle: t.venueHeading,
-    familyTitle: t.familyHeading,
     familyLine: getText(familyLine, lang),
     shareTitle: t.shareHeading,
     downloadCalendarCaption: t.calendarDescription,
