@@ -17,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261028-scroll" />
+    <link rel="stylesheet" href="styles.css?v=20261028-cover-overlay" />
   </head>
   <body>
     <audio id="backgroundMusic" src="wedding-song.mp3" loop preload="none"></audio>
@@ -27,26 +27,26 @@
     <p class="sr-only" id="musicStatus" role="status" aria-live="polite"></p>
     <div class="page-shell">
       <main id="home">
-        <section class="hero" aria-label="Invitation cover">
+        <section class="hero" aria-labelledby="introName">
           <div class="hero-shell">
-            <div class="hero-artwork" role="img" aria-label="Aditya and Siddhibala wedding artwork"></div>
-          </div>
-        </section>
-
-        <section class="section reception-introduction" aria-labelledby="introName">
-          <p class="intro-tag" id="introTag">DUBEY FAMILY</p>
-          <p class="hero-subtitle" id="introInvite">cordially invites you to the wedding reception of</p>
-          <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
-          <div class="hero-date" id="introDate">RECEPTION • Sunday, 6 December 2026 • 7:00 PM onwards (IST) • Jabalpur, Madhya Pradesh</div>
-          <div class="countdown-block hero-countdown">
-            <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the reception">
-              <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
-              <span class="countdown-separator" aria-hidden="true">:</span>
-              <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
-              <span class="countdown-separator" aria-hidden="true">:</span>
-              <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
-              <span class="countdown-separator" aria-hidden="true">:</span>
-              <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
+            <div class="hero-artwork">
+              <div class="content">
+                <p class="intro-tag" id="introTag">DUBEY FAMILY</p>
+                <p class="hero-subtitle" id="introInvite">cordially invites you to the wedding reception of</p>
+                <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
+                <div class="hero-date" id="introDate">RECEPTION • Sunday, 6 December 2026 • 7:00 PM onwards (IST) • Jabalpur, Madhya Pradesh</div>
+                <div class="countdown-block hero-countdown">
+                  <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the reception">
+                    <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
+                    <span class="countdown-separator" aria-hidden="true">:</span>
+                    <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
+                    <span class="countdown-separator" aria-hidden="true">:</span>
+                    <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
+                    <span class="countdown-separator" aria-hidden="true">:</span>
+                    <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>

@@ -1553,19 +1553,10 @@ html:has(.contact-dialog[open]) {
   min-height: 100svh;
 }
 
-.reception-introduction {
-  padding: 2rem 0 0;
-  text-align: center;
-  color: var(--maroon);
-}
-
-.reception-introduction .intro-tag {
-  color: var(--gold);
-}
-
-.reception-introduction .hero-subtitle,
-.reception-introduction .hero-date {
-  color: var(--maroon);
+.hero-artwork .content {
+  width: 100%;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
 }
 
 .scroll-reveal {
