@@ -4,50 +4,67 @@
   primaryHero: 'preview.jpg',
   musicAsset: 'wedding-song.mp3',
   couple: {
-    en: 'Siddhibala & Aditya',
-    hi: 'सिद्धिबाला एवं आदित्य'
-  },
-  familyLine: {
-    en: '',
-    hi: ''
-  },
+  "hi": "सिद्धिबाला एवं आदित्य"
+},
+  familyLine: { hi: "" },
   venueLabels: {
     hotelGulzar: 'Hotel Gulzar'
   },
   contacts: {
-    family: {
-      label: {
-        en: 'Family contacts',
-        hi: 'परिवार के संपर्क'
-      },
-      people: [
-        {
-          name: { en: 'Sushant Kumar Dubey', hi: 'श्री सुशांत कुमार दुबे' },
-          number: '+91-9425025656'
-        },
-        {
-          name: { en: 'Niharika Dubey', hi: 'श्रीमती निहारिका दुबे' },
-          number: '+91-8989958989'
-        }
-      ]
+  "family": {
+    "label": {
+      "hi": "दूरभाष"
     },
-    hotelGulzar: {
-      venueId: 'hotelGulzar',
-      numbers: ['0761-2421444', '0761-2929444', '+91-9200092220', '+91-9981537373']
-    }
-  },
-  family: {
-    en: {
-      heading: 'Family',
-      groom: { label: 'Parents', parents: [] },
-      bride: { label: 'Parents', parents: [] }
-    },
-    hi: {
-      heading: 'परिवार',
-      groom: { label: 'माता-पिता', parents: [] },
-      bride: { label: 'माता-पिता', parents: [] }
-    }
-  },
+    "numbers": [
+      "9425025656",
+      "8989958989"
+    ]
+  }
+},
+  sourceDocument: {
+  "filename": "निमन्त्रण पत्र  तृतीय.docx",
+  "invocation": [],
+  "invitation": [
+    "ॐ",
+    "।। निमंत्रण ।। ",
+    "विनय निमंत्रण आपको, गौरी पुत्र गणेश ।",
+    "मात-भवानी, भास्कर, ब्रह्मा, विष्णु, महेश ।।",
+    "परम स्नेही स्वजन,",
+    "\tईश्वर की असीम अनुकम्पा एवं पूर्वजों के शुभाशीर्वाद से हमारी सुपौत्री... ",
+    "सौभाग्य-कांक्षिणी सिद्धिबाला",
+    "सुपौत्री : स्व. नन्दिनी  एवम् ",
+    "श्री डॉ. कृष्ण कुमार दुबे (एडवोकेट)",
+    "सुपुत्री: श्रीमती निहारिका एवम्",
+    "श्री सुशांत कुमार दुबे (एडवोकेट)",
+    "जबलपुर (म.प्र.)",
+    "संग",
+    "चिरंजीव आदित्य",
+    "सुपौत्र : स्व. सूरजबाई एवम्",
+    "स्व. सुदामा प्रसाद जी दुबे",
+    "सुपुत्र: श्रीमती सरोज एवम्",
+    "श्री पुरुषोत्तम दुबे",
+    "जबलपुर (म. प्र.)",
+    "\t....के मंगल परिणय की मधुर बेला में सपरिवार पधार कर वर-वधू को अपना स्नेह एवं शुभाशीर्वाद प्रदान कर हमें अनुग्रहित करें।"
+  ],
+  "greetings": [
+    [
+      "स्वागताकांक्षी:- ",
+      "श्रीमती निहारिका दुबे",
+      "श्री सुशांत कुमार दुबे",
+      "सारंग कुमार दुबे (अनुज)"
+    ],
+    [
+      "दर्शनाभिलाषी:-",
+      "श्रीमती मनीषा - श्री अखिलेश चौबे",
+      "(बुआ-फूफाजी)",
+      "विजया (अनुजा) रुद्राक्ष (अनुज)"
+    ],
+    [
+      "विनीत:- ",
+      "डॉ. कृष्ण कुमार दुबे "
+    ]
+  ]
+},
   translations: {
     en: {
       langLabel: 'EN',
@@ -97,8 +114,8 @@
       navSchedule: 'विवाह उत्सव',
       navVenue: 'स्थान',
       navFamily: 'परिवार',
-      introTag: 'प्रेम और आशीर्वाद के साथ',
-      invitationLine: 'दुबे परिवार आपको विवाह समारोह में सादर आमंत्रित करता है।',
+      introTag: 'ॐ',
+      invitationLine: 'परम स्नेही स्वजन,',
       weddingMeta: 'जबलपुर, मध्य प्रदेश',
       mainNames: 'सिद्धिबाला एवं आदित्य',
       mainSubheading: '',
@@ -111,7 +128,7 @@
       venueHeading: 'स्थान और दिशा',
       familyHeading: 'परिवार',
       shareHeading: 'निमंत्रण साझा करें',
-      footerText: 'प्रेम से, सिद्धिबाला एवं आदित्य',
+      footerText: 'सिद्धिबाला एवं आदित्य',
       viewDirections: 'दिशा देखें',
       directionsTo: 'यहाँ जाने का मार्ग देखें:',
       callNow: 'कॉल करें',
@@ -129,85 +146,60 @@
       countDownHours: 'घंटे',
       countDownMinutes: 'मिनट',
       countDownSeconds: 'सेकंड',
-      whatsappShare: 'नमस्कार, दुबे परिवार आपको ६ दिसंबर २०२६ को जबलपुर में सिद्धिबाला एवं आदित्य के विवाहोत्सव में सादर आमंत्रित करता है। कृपया पधारें: https://adityadubey1313-oss.github.io/adisiddhi_3h/'
+      whatsappShare: 'परम स्नेही स्वजन, https://adityadubey1313-oss.github.io/adisiddhi_3h/'
     }
   },
   venues: {
-    hotelGulzar: {
-      id: 'hotelGulzar',
-      name: {
-        en: 'Hotel Gulzar',
-        hi: 'होटल गुलजार'
-      },
-      address: {
-        en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
-        hi: 'मदन महल चौक से शंकराचार्य चौक मार्ग, महानद्दा, जबलपुर, मध्य प्रदेश, भारत।'
-      },
-      mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur'
-    }
-  },
+  "hotelGulzar": {
+    "id": "hotelGulzar",
+    "name": {
+      "en": "Hotel Gulzar",
+      "hi": "होटल गुलज़ार"
+    },
+    "address": {
+      "en": "Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.",
+      "hi": "मदन महल चौक से शंकराचार्य चौक (छोटी लाइन फाटक) मार्ग, महानद्दा, जबलपुर।\nदूरभाष : 9425025656, 8989958989."
+    },
+    "mapsUrl": "https://maps.google.com/?q=Hotel+Gulzar+Jabalpur",
+    "sourceLines": [
+      "कार्यक्रम स्थल: `होटल गुलज़ार‘",
+      "मदन महल चौक से शंकराचार्य चौक (छोटी लाइन फाटक) मार्ग, महानद्दा, जबलपुर।",
+      "दूरभाष : 9425025656, 8989958989."
+    ]
+  }
+},
   events: [
-    {
-      id: 'kul-devta',
-      title: { en: 'Kul-Devta (Baram-Dev) Pujan', hi: 'श्री कुल-देव (बरम-देव) पूजन' },
-      date: '2026-12-05',
-      day: { en: 'Saturday', hi: 'शनिवार' },
-      start: '12:00',
-      end: '13:00',
-      venueId: 'hotelGulzar',
-      note: { en: 'Traditional date: Agahan Krishna Dwadashi', hi: 'परंपरागत तिथि: अगहन कृष्ण द्वादशी' }
+  {
+    "id": "baraat-welcome",
+    "title": {
+      "hi": "बारात-स्वागत, वरमाला, पाणिग्रहण-सप्तपदी संस्कार "
     },
-    {
-      id: 'floral-haldi',
-      title: { en: 'Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)', hi: 'वर-वधू पर पुष्प आशीर्वाद वर्षा (फूलों की हल्दी)' },
-      date: '2026-12-05',
-      day: { en: 'Saturday', hi: 'शनिवार' },
-      start: '13:00',
-      end: '14:30',
-      venueId: 'hotelGulzar',
-      note: { en: 'Blessings and floral ritual', hi: 'आशीर्वाद और पुष्प अनुष्ठान' }
+    "date": "2026-12-06",
+    "day": {
+      "hi": "अगहन कृष्ण त्रयोदशी - रविवार, दिनांक ६ दिसम्बर, २०२६"
     },
-    {
-      id: 'lagun',
-      title: { en: 'Lagun Ceremony', hi: 'लगुन संस्कार' },
-      date: '2026-12-05',
-      day: { en: 'Saturday', hi: 'शनिवार' },
-      start: '16:00',
-      end: '17:30',
-      venueId: 'hotelGulzar',
-      note: { en: 'Lagun and Tilak refer to the same ceremony here.', hi: 'यहाँ लगुन और तिलक एक ही संस्कार हैं।' }
+    "start": "09:00",
+    "end": "15:00",
+    "venueId": "hotelGulzar",
+    "timeText": "प्रात:काल ९ बजे से दोपहर ३ बजे तक ",
+    "programTitle": "|| कार्यक्रम ||"
+  },
+  {
+    "id": "reception-dinner",
+    "title": {
+      "hi": "आशीर्वाद समारोह एवं प्रीतिभोज "
     },
-    {
-      id: 'engagement-sangeet',
-      title: { en: 'Engagement & Sangeet Ceremony', hi: 'सगाई और संगीत समारोह' },
-      date: '2026-12-05',
-      day: { en: 'Saturday', hi: 'शनिवार' },
-      start: '19:30',
-      end: null,
-      venueId: 'hotelGulzar',
-      note: { en: 'Evening celebration begins at 7:30 PM onwards.', hi: 'संध्या कार्यक्रम 7:30 PM से आरंभ है।' }
+    "date": "2026-12-06",
+    "day": {
+      "hi": "अगहन कृष्ण त्रयोदशी - रविवार, दिनांक ६ दिसम्बर, २०२६"
     },
-    {
-      id: 'baraat-welcome',
-      title: { en: 'Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)', hi: 'बारात स्वागत, वरमाला, पाणिग्रहण, सप्तपदी संस्कार' },
-      date: '2026-12-06',
-      day: { en: 'Sunday', hi: 'रविवार' },
-      start: '09:00',
-      end: '15:00',
-      venueId: 'hotelGulzar',
-      note: { en: 'Traditional date: Agahan Krishna Trayodashi / Pradosh Vrat', hi: 'परंपरागत तिथि: अगहन कृष्ण त्रयोदशी / प्रदोष व्रत' }
-    },
-    {
-      id: 'reception-dinner',
-      title: { en: 'Reception & Dinner (Aashirwad Samaroh & Preetibhoj)', hi: 'वर-वधू आशीर्वाद समारोह एवं प्रीतिभोज' },
-      date: '2026-12-06',
-      day: { en: 'Sunday', hi: 'रविवार' },
-      start: '20:00',
-      end: null,
-      venueId: 'hotelGulzar',
-      note: { en: 'Evening reception and dinner begin at 8:00 PM onwards.', hi: 'रात्रि 8 बजे से' }
-    }
-  ]
+    "start": "20:00",
+    "end": null,
+    "venueId": "hotelGulzar",
+    "timeText": "रात्रि ८ बजे से",
+    "programTitle": "|| कार्यक्रम ||"
+  }
+]
 };
 
 window.invitationData = invitationData;
