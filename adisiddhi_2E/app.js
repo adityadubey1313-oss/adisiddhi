@@ -87,6 +87,7 @@ function setLanguage(lang) {
   const t = translations[lang];
   const textById = {
     introTag: t.introTag,
+    introName: getText(couple, lang),
     introInvite: t.invitationLine,
     introDate: t.weddingMeta,
     eventDateLabel: t.eventDateLabel,
@@ -378,8 +379,6 @@ function init() {
   }
 
   setLanguage(appState.lang);
-  document.querySelector('.hero-countdown').hidden = false;
-  document.getElementById('share').hidden = false;
   setInterval(updateCountdown, 1000);
 }
 

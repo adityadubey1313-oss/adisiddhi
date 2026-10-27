@@ -7,8 +7,8 @@ Standalone English website based on source project _2.
 - Reception only: Sunday, 6 December 2026, 7:00 PM onwards (IST).
 - Venue: Hotel Gulzar, confirmed by this version's original `reception-dinner.venueId` in `invitation-data.js`. The existing address and Maps search link are retained; no coordinates have been guessed.
 - Features: the supplied groom-side family roster and couple lineage, venue directions, venue contacts, reception countdown, and reception-only WhatsApp sharing. The page intentionally omits schedule and calendar controls; the directly accessible `invitation.ics` also contains only the reception.
-- Presentation: existing couple artwork, ivory, lavender/purple, and gold ornamentation. Navigation transitions and reduced-motion behavior are retained. This version has no cover-opening overlay or active music player; the existing soundtrack asset is unchanged.
-- Accessibility: invitation, family details, venue, and directions are present in HTML without JavaScript. Countdown and script-dependent action buttons appear only after initialization.
+- Presentation: the original 2E stylesheet, portrait background, colors, typography, hero layout, venue grid, family grid, navigation transitions, and reduced-motion behavior are restored from source commit `54d98c8`. No new theme or floral artwork is used. This version has no cover-opening overlay or active music player; the existing soundtrack asset is unchanged.
+- Accessibility: invitation, lineage, family details, venue, and directions are present in HTML without JavaScript. The original countdown and action controls are retained; countdown updates, sharing, and the contact dialog require JavaScript.
 - Assets: relative paths keep this package portable at its repository root.
 - Deployment: the repository-local workflow at .github/workflows/deploy-pages.yml publishes this package root to GitHub Pages.
 
