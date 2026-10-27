@@ -1484,3 +1484,74 @@ a:hover {
     gap: 0.45rem;
   }
 }
+
+.hero {
+  padding: 0;
+}
+
+.hero .hero-artwork {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.hero-artwork .content {
+  width: 100%;
+  padding-top: 3.5rem;
+  padding-bottom: 2rem;
+}
+
+.event-venue {
+  overflow-wrap: anywhere;
+}
+
+.family-couple .family-role {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.family-couple .family-names p {
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.family-group:nth-child(odd) {
+  border-left: 0;
+}
+
+.music-toggle {
+  position: fixed;
+  top: max(0.5rem, env(safe-area-inset-top));
+  right: max(0.5rem, env(safe-area-inset-right));
+  z-index: 40;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--pearl);
+  color: var(--maroon);
+  cursor: pointer;
+}
+
+.music-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.music-toggle[hidden],
+.music-toggle[aria-pressed="false"] .music-waves,
+.music-toggle[aria-pressed="true"] .music-silent {
+  display: none;
+}

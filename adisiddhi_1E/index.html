@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aditya & Siddhibala | Wedding Invitation _1E</title>
-    <meta name="description" content="An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur on 6 December 2026. Project _1E." />
+    <meta name="description" content="The Dubey Family invites you to the wedding celebrations of Aditya and Siddhibala, 2–6 December 2026 in Jabalpur, Madhya Pradesh." />
 
     <meta property="og:title" content="Aditya & Siddhibala | Wedding Invitation _1E" />
-    <meta property="og:description" content="You are warmly invited to celebrate our wedding on 6 December 2026." />
+    <meta property="og:description" content="Join the Dubey Family for the wedding celebrations of Aditya and Siddhibala, 2–6 December 2026 in Jabalpur." />
     <meta property="og:image" content="https://adityadubey1313-oss.github.io/adisiddhi_1E/preview.jpg" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://adityadubey1313-oss.github.io/adisiddhi_1E/" />
@@ -17,35 +17,26 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=20261028-all-celebrations" />
   </head>
   <body>
+    <audio id="backgroundMusic" src="wedding-song.mp3" loop preload="none"></audio>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Mute background music" aria-pressed="true" hidden>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 5 6 9H3v6h3l5 4V5Z"></path><path class="music-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"></path><path class="music-silent" d="m16 9 5 6m0-6-5 6"></path></svg>
+    </button>
+    <p class="sr-only" id="musicStatus" role="status" aria-live="polite"></p>
     <div class="page-shell">
-      <header class="site-header">
-        <div class="nav-wrap">
-          <div class="brand" aria-label="Aditya and Siddhibala">Aditya &amp; Siddhibala</div>
-
-          <nav class="main-nav" aria-label="Main navigation">
-            <a href="#home" data-copy="navHome">Home</a>
-            <a href="#schedule" data-copy="navSchedule">Schedule</a>
-            <a href="#venues" data-copy="navVenue">Venues</a>
-            <a href="#family" data-copy="navFamily">Family</a>
-          </nav>
-
-        </div>
-      </header>
-
       <main id="home">
         <section class="hero" aria-labelledby="introName">
           <div class="hero-shell">
             <div class="hero-artwork">
               <div class="content">
-                <p class="intro-tag" id="introTag">With love and gratitude</p>
-                <p class="hero-subtitle" id="introInvite">Dubey Family invites you to celebrate</p>
+                <p class="intro-tag" id="introTag">DUBEY FAMILY</p>
+                <p class="hero-subtitle" id="introInvite">cordially invites you to the wedding celebrations of</p>
                 <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
-                <div class="hero-date" id="introDate">6 December 2026 • Jabalpur, Madhya Pradesh</div>
+                <div class="hero-date" id="introDate">WEDDING CELEBRATIONS • 2–6 December 2026 • Jabalpur, Madhya Pradesh</div>
                 <div class="countdown-block hero-countdown">
-                  <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the wedding">
+                  <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the reception">
                     <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
                     <span class="countdown-separator" aria-hidden="true">:</span>
                     <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
@@ -87,6 +78,7 @@
         <section class="section" id="schedule">
           <div class="section-heading-group">
             <h2 class="section-heading" id="scheduleTitle">The Wedding Festivities</h2>
+            <p class="timezone-note">All times are in India Standard Time (IST).</p>
           </div>
           <div class="schedule-list" id="scheduleList"></div>
         </section>
@@ -139,7 +131,7 @@
       </footer>
     </div>
 
-    <script src="invitation-data.js?v=20261010-hi-spellings-2"></script>
-    <script src="app.js?v=d414273"></script>
+    <script src="invitation-data.js?v=20261028-all-celebrations"></script>
+    <script src="app.js?v=20261028-all-celebrations"></script>
   </body>
 </html>

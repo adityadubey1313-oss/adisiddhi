@@ -41,13 +41,25 @@ const invitationData = {
     en: {
       heading: 'With love from the family',
       groom: {
-        label: 'Groom\'s parents',
-        parents: ['Smt Saroj Dubey', 'Shree Purushottam Dubey']
+        label: 'Aditya',
+        lineage: 'G.S/o Late Smt. Suraj Bai & Late Shri Sudama Prasad Dubey',
+        parents: ['S/o Smt. Saroj Dubey & Shri Purushottam Dubey']
       },
       bride: {
-        label: 'Bride\'s parents',
-        parents: ['Smt Niharika Dubey', 'Shree Sushant Kumar Dubey']
-      }
+        label: 'Siddhibala',
+        lineage: 'G.D/o Late Smt. Nandini Dubey & Dr. Krishna Kumar Dubey',
+        parents: ['D/o Smt. Niharika Dubey & Shri Sushant Kumar Dubey']
+      },
+      greetings: [
+        {
+          label: 'With Best Compliments From',
+          parents: ['Devki Bhojraj Upadhyay', 'Dr Srishti Ankit Dhimole', 'Swati Siddharth Jain', 'Raj, Ahan, Anant and Nirvi']
+        },
+        {
+          label: 'Welcoming the Guests',
+          parents: ['Saroj Purushottam Dubey', 'Archana Dubey', 'Ambar Dubey', 'Ambuj Dubey']
+        }
+      ]
     },
     hi: {
       heading: 'पारिवारिक आशीर्वाद',
@@ -69,12 +81,12 @@ const invitationData = {
       navSchedule: 'Festivities',
       navVenue: 'Venues',
       navFamily: 'Family',
-      introTag: 'With love and gratitude',
-      invitationLine: 'Dubey Family invites you to celebrate',
-      weddingMeta: '6 December 2026 • Jabalpur, Madhya Pradesh',
+      introTag: 'DUBEY FAMILY',
+      invitationLine: 'cordially invites you to the wedding celebrations of',
+      weddingMeta: 'WEDDING CELEBRATIONS • 2–6 December 2026 • Jabalpur, Madhya Pradesh',
       mainNames: 'Aditya & Siddhibala',
       mainSubheading: 'Dubey Family invites you.',
-      countdownAria: 'Countdown to the wedding',
+      countdownAria: 'Countdown to the reception',
       eventDateLabel: 'Wedding day',
       ritualsLabel: 'Wedding rituals',
       receptionLabel: 'Reception & dinner',
@@ -96,12 +108,12 @@ const invitationData = {
       shareWhatsApp: 'Share on WhatsApp',
       calendarDescription: 'Download the full invitation calendar.',
       pageTitle: 'Aditya & Siddhibala | Wedding Invitation _1E',
-      description: 'An elegant invitation for the wedding of Aditya and Siddhibala in Jabalpur on 6 December 2026. Project _1E.',
+      description: 'The Dubey Family invites you to the wedding celebrations of Aditya and Siddhibala, 2–6 December 2026 in Jabalpur, Madhya Pradesh.',
       countDownDays: 'Days',
       countDownHours: 'Hours',
       countDownMinutes: 'Minutes',
       countDownSeconds: 'Seconds',
-      whatsappShare: 'Hello, the Dubey Family invites you to celebrate the wedding of Aditya and Siddhibala on 6 December 2026 in Jabalpur. Please join us: https://adityadubey1313-oss.github.io/adisiddhi_1E/'
+      whatsappShare: 'Hello, the Dubey Family invites you to the wedding celebrations of Aditya and Siddhibala, 2–6 December 2026 in Jabalpur. Reception: Sunday, 6 December at 7:00 PM onwards (IST). Full festivities and directions: https://adityadubey1313-oss.github.io/adisiddhi_1E/'
     },
     hi: {
       langLabel: 'हि',
@@ -165,108 +177,101 @@ const invitationData = {
         hi: 'होटल गुलजार'
       },
       address: {
-        en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadd, Jabalpur, Madhya Pradesh, India.',
+        en: 'Madan Mahal Chowk to Shankaracharya Chowk Road, Mahanadda, Nagpur Road, Madan Mahal, Jabalpur, Madhya Pradesh.',
         hi: 'मदन महल चौक से शंकराचार्य चौक मार्ग, महानद्दा, जबलपुर, मध्य प्रदेश, भारत।'
       },
       mapsUrl: 'https://maps.google.com/?q=Hotel+Gulzar+Jabalpur'
+    },
+    skywayApartment: {
+      id: 'skywayApartment',
+      name: { en: 'Skyway Apartment' },
+      address: { en: 'Flat 405, Skyway Apartment, Dhanwantri Nagar, Jabalpur.' },
+      mapsUrl: 'https://maps.google.com/?q=Flat+405+Skyway+Apartment+Dhanwantri+Nagar+Jabalpur'
     }
   },
   events: [
     {
-      id: 'kul-devta',
-      title: {
-        en: 'Kul-Devta (Baram-Dev) Pujan',
-        hi: 'श्री कुल-देव (बरम-देव) पूजन'
-      },
-      date: '2026-12-05',
-      day: { en: 'Saturday', hi: 'शनिवार' },
+      id: 'devi-bhajan',
+      title: { en: 'Devi Bhajan' },
+      date: '2026-12-02',
+      day: { en: 'Wednesday' },
+      start: '14:00',
+      end: null,
+      venueId: null
+    },
+    {
+      id: 'mehendi',
+      title: { en: 'Mehendi' },
+      date: '2026-12-03',
+      day: { en: 'Thursday' },
+      start: '15:00',
+      end: null,
+      venueId: 'skywayApartment'
+    },
+    {
+      id: 'magarmaati',
+      title: { en: 'Magarmaati' },
+      date: '2026-12-03',
+      day: { en: 'Thursday' },
+      start: '17:00',
+      end: null,
+      venueId: 'skywayApartment'
+    },
+    {
+      id: 'janeu-mandap-haldi',
+      title: { en: 'Yajnopavita (Janeu) Sanskar, Mandap and Tel-Haldi' },
+      date: '2026-12-04',
+      day: { en: 'Friday' },
       start: '12:00',
-      end: '13:00',
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Traditional date: Agahan Krishna Dwadashi',
-        hi: 'परंपरागत तिथि: अगहन कृष्ण द्वादशी'
-      }
+      end: '17:00',
+      venueId: 'hotelGulzar'
     },
     {
       id: 'floral-haldi',
-      title: {
-        en: 'Floral Haldi & Blessing Ceremony (Pushpa Aashirwad Varsha)',
-        hi: 'वर-वधू पर पुष्प आशीर्वाद वर्षा (फूलों की हल्दी)'
-      },
+      title: { en: 'Pushp-Haldi Celebration' },
       date: '2026-12-05',
       day: { en: 'Saturday', hi: 'शनिवार' },
-      start: '13:00',
-      end: '14:30',
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Blessings and floral ritual',
-        hi: 'आशीर्वाद और पुष्प अनुष्ठान'
-      }
+      start: '12:00',
+      end: null,
+      venueId: 'hotelGulzar'
     },
     {
       id: 'lagun',
-      title: {
-        en: 'Lagun Ceremony',
-        hi: 'लगुन संस्कार'
-      },
+      title: { en: 'Tilak' },
       date: '2026-12-05',
       day: { en: 'Saturday', hi: 'शनिवार' },
       start: '16:00',
-      end: '17:30',
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Lagun and Tilak refer to the same ceremony here.',
-        hi: 'यहाँ लगुन और तिलक एक ही संस्कार हैं।'
-      }
+      end: null,
+      venueId: 'hotelGulzar'
     },
     {
       id: 'engagement-sangeet',
-      title: {
-        en: 'Engagement & Sangeet Ceremony',
-        hi: 'सगाई और संगीत समारोह'
-      },
+      title: { en: 'Ring Ceremony & Sangeet' },
       date: '2026-12-05',
       day: { en: 'Saturday', hi: 'शनिवार' },
       start: '19:30',
       end: null,
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Evening celebration begins at 7:30 PM onwards.',
-        hi: 'संध्या कार्यक्रम 7:30 PM से आरंभ है।'
-      }
+      venueId: 'hotelGulzar'
     },
     {
       id: 'baraat-welcome',
-      title: {
-        en: 'Baraat Welcome, Varmala, Panigrahana & Saptapadi (Wedding Rituals)',
-        hi: 'बारात स्वागत, वरमाला, पाणिग्रहण, सप्तपदी संस्कार'
-      },
+      title: { en: 'Baarat Wedding Ceremony & Phere' },
       date: '2026-12-06',
       day: { en: 'Sunday', hi: 'रविवार' },
       start: '09:00',
-      end: '15:00',
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Traditional date: Agahan Krishna Trayodashi / Pradosh Vrat',
-        hi: 'परंपरागत तिथि: अगहन कृष्ण त्रयोदशी / प्रदोष व्रत'
-      }
+      end: null,
+      onwards: true,
+      venueId: 'hotelGulzar'
     },
     {
       id: 'reception-dinner',
-      title: {
-        en: 'Reception & Dinner (Aashirwad Samaroh & Preetibhoj)',
-        hi: 'वर-वधू आशीर्वाद समारोह एवं प्रीतिभोज'
-      },
+      title: { en: 'Reception' },
       date: '2026-12-06',
       day: { en: 'Sunday', hi: 'रविवार' },
-      start: '20:00',
+      start: '19:00',
       end: null,
-      venueId: 'hotelGulzar',
-      note: {
-        en: 'Evening reception and dinner begin at 8:00 PM onwards.',
-        hi: 'रात्रि 8 बजे से'
-      }
+      onwards: true,
+      venueId: 'hotelGulzar'
     }
   ]
 };

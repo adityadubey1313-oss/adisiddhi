@@ -53,6 +53,7 @@ function formatEventTime(time) {
 function formatEventRange(event) {
   const start = formatEventTime(event.start);
   if (event.end) return `${start}–${formatEventTime(event.end)}`;
+  if (!event.onwards) return start;
   return appState.lang === 'hi' ? `${start} से आगे` : `${start} onwards`;
 }
 
@@ -141,10 +142,10 @@ function renderFamilies(lang) {
   const groom = family[lang].groom;
   const bride = family[lang].bride;
 
-  [groom, bride].forEach((section, index) => {
+  [groom, bride, ...(family[lang].greetings || [])].forEach((section, index) => {
     const block = document.createElement('article');
-    block.className = 'family-group';
-    const label = document.createElement('p');
+    block.className = index < 2 ? 'family-group family-couple' : 'family-group';
+    const label = document.createElement(index < 2 ? 'h3' : 'p');
     label.className = 'family-role';
     label.textContent = section.label;
     const divider = document.createElement('span');
@@ -152,12 +153,17 @@ function renderFamilies(lang) {
     divider.setAttribute('aria-hidden', 'true');
     const names = document.createElement('div');
     names.className = 'family-names';
+    if (section.lineage) {
+      const lineage = document.createElement('p');
+      lineage.textContent = section.lineage;
+      names.appendChild(lineage);
+    }
     section.parents.forEach((person) => {
       const name = document.createElement('p');
       name.textContent = person;
       names.appendChild(name);
     });
-    block.dataset.family = index === 0 ? 'groom' : 'bride';
+    block.dataset.family = ['groom', 'bride', 'compliments', 'welcome'][index];
     block.append(label, divider, names);
     familyContent.appendChild(block);
   });
@@ -190,7 +196,7 @@ function renderSchedule(lang) {
 
   schedule.innerHTML = '';
 
-  const groupedEvents = events.reduce((groups, event) => {
+  const groupedEvents = [...events].sort((a, b) => `${a.date}T${a.start}`.localeCompare(`${b.date}T${b.start}`)).reduce((groups, event) => {
     const dayEvents = groups.get(event.date) || [];
     dayEvents.push(event);
     groups.set(event.date, dayEvents);
@@ -221,15 +227,22 @@ function renderSchedule(lang) {
       const title = document.createElement('h4');
       title.textContent = getText(event.title, lang);
 
-      const venueLink = document.createElement('a');
-      venueLink.className = 'event-venue';
-      venueLink.href = venue.mapsUrl;
-      venueLink.target = '_blank';
-      venueLink.rel = 'noopener noreferrer';
-      venueLink.innerHTML = `${directionsIcon()}<span>${getText(venue.name, lang)}</span>`;
-      venueLink.setAttribute('aria-label', localizeDigits(`${translations[lang].directionsTo} ${getText(venue.name, lang)}`, lang));
-
-      item.append(time, title, venueLink);
+      item.append(time, title);
+      if (venue) {
+        const venueLink = document.createElement('a');
+        venueLink.className = 'event-venue';
+        venueLink.href = venue.mapsUrl;
+        venueLink.target = '_blank';
+        venueLink.rel = 'noopener noreferrer';
+        venueLink.innerHTML = `${directionsIcon()}<span>${getText(venue.name, lang)} — ${getText(venue.address, lang)}</span>`;
+        venueLink.setAttribute('aria-label', localizeDigits(`${translations[lang].directionsTo} ${getText(venue.name, lang)}`, lang));
+        item.appendChild(venueLink);
+      } else {
+        const pendingVenue = document.createElement('p');
+        pendingVenue.className = 'event-note';
+        pendingVenue.textContent = 'Venue to be confirmed';
+        item.appendChild(pendingVenue);
+      }
       if (event.guestNote) {
         const note = document.createElement('p');
         note.className = 'event-note';
@@ -259,6 +272,12 @@ function renderVenues(lang) {
         <a class="button-link directions-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer" aria-label="${translations[lang].directionsTo} ${getText(venue.name, lang)}">${directionsIcon()}<span>${translations[lang].viewDirections}</span></a>
       </div>
     `;
+    if (!events.some((event) => event.venueId === venue.id)) {
+      const pendingAssignment = document.createElement('p');
+      pendingAssignment.className = 'event-note';
+      pendingAssignment.textContent = 'Event assignment to be confirmed.';
+      card.appendChild(pendingAssignment);
+    }
     venueGrid.appendChild(card);
   });
 }
@@ -307,7 +326,7 @@ function renderWhatsAppText(lang) {
 }
 
 function updateCountdown() {
-  const targetDate = new Date(`${weddingEvent.date}T${weddingEvent.start}:00+05:30`);
+  const targetDate = new Date(`${receptionEvent.date}T${receptionEvent.start}:00+05:30`);
   const now = new Date();
   const delta = Math.max(targetDate.getTime() - now.getTime(), 0);
 
@@ -324,6 +343,10 @@ function updateCountdown() {
   setText('hoursLabel', translations[appState.lang].countDownHours);
   setText('minutesLabel', translations[appState.lang].countDownMinutes);
   setText('secondsLabel', translations[appState.lang].countDownSeconds);
+}
+
+function escapeCalendarText(text) {
+  return text.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
 }
 
 function createIcsContent() {
@@ -348,7 +371,7 @@ function createIcsContent() {
     const venue = venues[event.venueId];
     const eventTitle = getText(event.title);
     const note = getText(event.note || event.guestNote);
-    const venueName = getText(venue.name);
+    const venueName = venue ? getText(venue.name) : 'Venue to be confirmed';
     const description = [note, `${appState.lang === 'hi' ? 'स्थान' : 'Venue'}: ${venueName}`].filter(Boolean).join('; ');
 
     lines.push('BEGIN:VEVENT');
@@ -359,14 +382,28 @@ function createIcsContent() {
       const endDate = event.date.replace(/-/g, '') + 'T' + event.end.replace(':', '') + '00';
       lines.push(`DTEND;TZID=Asia/Kolkata:${endDate}`);
     }
-    lines.push(`SUMMARY:${eventTitle}`);
-    lines.push(`DESCRIPTION:${description.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n')}`);
-    lines.push(`LOCATION:${`${venueName}, ${getText(venue.address)}`.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,')}`);
+    lines.push(`SUMMARY:${escapeCalendarText(eventTitle)}`);
+    lines.push(`DESCRIPTION:${escapeCalendarText(description)}`);
+    if (venue) lines.push(`LOCATION:${escapeCalendarText(`${venueName}, ${getText(venue.address)}`)}`);
     lines.push('END:VEVENT');
   });
 
   lines.push('END:VCALENDAR');
-  return lines.join('\r\n');
+  const encoder = new TextEncoder();
+  return lines.map((line) => {
+    let folded = '';
+    let length = 0;
+    for (const character of line) {
+      const bytes = encoder.encode(character).length;
+      if (length + bytes > 75) {
+        folded += '\r\n ';
+        length = 1;
+      }
+      folded += character;
+      length += bytes;
+    }
+    return folded;
+  }).join('\r\n');
 }
 
 function downloadCalendar() {
@@ -379,6 +416,77 @@ function downloadCalendar() {
   link.click();
   link.remove();
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function initMusic() {
+  const audio = document.getElementById('backgroundMusic');
+  const toggle = document.getElementById('musicToggle');
+  const status = document.getElementById('musicStatus');
+  let playbackPending = false;
+
+  function updateMusicControl() {
+    const enabled = !audio.muted;
+    toggle.setAttribute('aria-label', enabled ? 'Mute background music' : 'Unmute background music');
+    toggle.setAttribute('aria-pressed', String(enabled));
+    toggle.title = enabled ? 'Mute background music' : 'Unmute background music';
+  }
+
+  async function startMusic() {
+    if (audio.muted || playbackPending || !audio.paused) return;
+    playbackPending = true;
+    try {
+      await audio.play();
+      status.textContent = '';
+    } catch (error) {
+      if (error.name === 'NotAllowedError') {
+        console.info('Background music awaits a browser-permitted user interaction.');
+      } else {
+        console.warn('Background music could not start.', error);
+        status.textContent = 'Background music is temporarily unavailable.';
+      }
+    } finally {
+      playbackPending = false;
+      updateMusicControl();
+    }
+  }
+
+  audio.loop = true;
+  toggle.hidden = false;
+  audio.addEventListener('playing', removeInteractionListeners, { once: true });
+  audio.addEventListener('play', updateMusicControl);
+  audio.addEventListener('pause', updateMusicControl);
+  audio.addEventListener('volumechange', updateMusicControl);
+  audio.addEventListener('error', () => {
+    console.warn('The invitation soundtrack could not be loaded.', audio.error);
+    status.textContent = 'Background music is unavailable.';
+    updateMusicControl();
+  });
+  toggle.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    if (!audio.muted) {
+      if (audio.error) audio.load();
+      startMusic();
+    }
+    updateMusicControl();
+  });
+
+  function onInteraction(event) {
+    if (toggle.contains(event.target)) return;
+    if (event.type === 'keydown' && (event.repeat || !['Enter', ' ', 'ArrowDown', 'PageDown'].includes(event.key))) return;
+    startMusic();
+  }
+  function removeInteractionListeners() {
+    document.removeEventListener('pointerup', onInteraction, true);
+    document.removeEventListener('click', onInteraction, true);
+    document.removeEventListener('keydown', onInteraction, true);
+  }
+  document.addEventListener('pointerup', onInteraction, { capture: true, passive: true });
+  document.addEventListener('click', onInteraction, { capture: true, passive: true });
+  document.addEventListener('keydown', onInteraction, { capture: true, passive: true });
+  window.addEventListener('pagehide', () => audio.pause());
+
+  updateMusicControl();
+  startMusic();
 }
 
 function init() {
@@ -406,6 +514,7 @@ function init() {
   }
 
   setLanguage(appState.lang);
+  initMusic();
   setInterval(updateCountdown, 1000);
 }
 
