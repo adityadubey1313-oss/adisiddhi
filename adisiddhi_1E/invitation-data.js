@@ -12,23 +12,22 @@ const invitationData = {
     hi: 'दुबे परिवार आपके स्नेह का निमंत्रण स्वीकार करे।'
   },
   venueLabels: {
-    kishoreKuti: 'Kishore Kuti, Manas Bhawan',
     hotelGulzar: 'Hotel Gulzar'
   },
   contacts: {
     family: {
       label: {
-        en: 'Family contacts',
+        en: 'Family',
         hi: 'परिवार के संपर्क'
       },
       people: [
         {
-          name: { en: 'Sushant Kumar Dubey', hi: 'श्री सुशांत कुमार दुबे' },
-          number: '+91-9425025656'
+          name: { en: 'Purushottam Dubey', hi: 'श्री पुरुषोत्तम दुबे' },
+          number: '+91-9589680447'
         },
         {
-          name: { en: 'Niharika Dubey', hi: 'श्रीमती निहारिका दुबे' },
-          number: '+91-8989958989'
+          name: { en: 'Saroj Dubey', hi: 'श्रीमती सरोज दुबे' },
+          number: '+91-8817305921'
         }
       ]
     },
@@ -83,7 +82,7 @@ const invitationData = {
       navFamily: 'Family',
       introTag: 'DUBEY FAMILY',
       invitationLine: 'cordially invites you to the wedding celebrations of',
-      weddingMeta: 'WEDDING CELEBRATIONS • 2–6 December 2026 • Jabalpur, Madhya Pradesh',
+      weddingMeta: 'WEDDING CELEBRATIONS • 6 December 2026 • Jabalpur, Madhya Pradesh',
       mainNames: 'Aditya & Siddhibala',
       mainSubheading: 'Dubey Family invites you.',
       countdownAria: 'Countdown to the reception',
@@ -100,13 +99,11 @@ const invitationData = {
       directionsTo: 'Directions to',
       callNow: 'Call',
       call: 'Call',
-      contactSheetTitle: 'Contact numbers',
+      contactSheetTitle: 'Reception venue contacts',
       contactSheetClose: 'Close contact panel',
-      contactSheetAria: 'Contact numbers by venue',
+      contactSheetAria: 'Contact numbers for Hotel Gulzar, the reception venue',
       venueContactHeading: 'Venue contacts',
-      downloadCalendar: 'Download calendar',
       shareWhatsApp: 'Share on WhatsApp',
-      calendarDescription: 'Download the full invitation calendar.',
       pageTitle: 'Aditya & Siddhibala | Wedding Invitation _1E',
       description: 'The Dubey Family invites you to the wedding celebrations of Aditya and Siddhibala, 2–6 December 2026 in Jabalpur, Madhya Pradesh.',
       countDownDays: 'Days',
@@ -145,9 +142,7 @@ const invitationData = {
       contactSheetClose: 'संपर्क पैनल बंद करें',
       contactSheetAria: 'स्थानों के अनुसार संपर्क संख्याएँ',
       venueContactHeading: 'स्थानों के संपर्क',
-      downloadCalendar: 'कैलेंडर डाउनलोड करें',
       shareWhatsApp: 'व्हाट्सऐप पर साझा करें',
-      calendarDescription: 'पूरा निमंत्रण कैलेंडर डाउनलोड करें।',
       pageTitle: 'आदित्य एवं सिद्धिबाला | विवाह निमंत्रण _1',
       description: '6 दिसंबर 2026 को जबलपुर में आदित्य और सिद्धिबाला के विवाह का सुंदर निमंत्रण। परियोजना _1।',
       countDownDays: 'दिन',
@@ -158,18 +153,6 @@ const invitationData = {
     }
   },
   venues: {
-    kishoreKuti: {
-      id: 'kishoreKuti',
-      name: {
-        en: 'Kishore Kuti, Manas Bhawan',
-        hi: 'किशोर कुटी, मानस भवन'
-      },
-      address: {
-        en: 'Nagar Nigam Road, Wright Town, Jabalpur, Madhya Pradesh, India.',
-        hi: 'नगर निगम रोड, राइट टाउन, जबलपुर, मध्य प्रदेश, भारत।'
-      },
-      mapsUrl: 'https://maps.app.goo.gl/B2gr7KzgUDMbcMzq5'
-    },
     hotelGulzar: {
       id: 'hotelGulzar',
       name: {
@@ -197,7 +180,9 @@ const invitationData = {
       day: { en: 'Wednesday' },
       start: '14:00',
       end: null,
-      venueId: null
+      venueId: null,
+      directionsUrl: 'https://maps.app.goo.gl/QnWoWT1AaJmk3urk9',
+      directionsLabel: 'Get directions to Devi Bhajan'
     },
     {
       id: 'mehendi',

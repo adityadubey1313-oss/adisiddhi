@@ -101,8 +101,6 @@ function setLanguage(lang) {
     familyTitle: t.familyHeading,
     familyLine: getText(familyLine, lang),
     shareTitle: t.shareHeading,
-    downloadCalendarCaption: t.calendarDescription,
-    downloadCalendarLabel: t.downloadCalendar,
     callActionLabel: t.call,
     contactDialogTitle: t.contactSheetTitle,
     contactDialogDescription: t.contactSheetAria,
@@ -116,8 +114,6 @@ function setLanguage(lang) {
     element.textContent = localizeDigits(t[element.dataset.copy], lang);
   });
 
-  const calendarButton = document.getElementById('downloadCalendar');
-  if (calendarButton) calendarButton.setAttribute('aria-label', localizeDigits(t.downloadCalendar, lang));
   const whatsappButton = document.getElementById('whatsappShare');
   if (whatsappButton) {
     whatsappButton.setAttribute('aria-label', localizeDigits(t.shareWhatsApp, lang));
@@ -228,14 +224,14 @@ function renderSchedule(lang) {
       title.textContent = getText(event.title, lang);
 
       item.append(time, title);
-      if (venue) {
+      if (venue || event.directionsUrl) {
         const venueLink = document.createElement('a');
         venueLink.className = 'event-venue';
-        venueLink.href = venue.mapsUrl;
+        venueLink.href = venue ? venue.mapsUrl : event.directionsUrl;
         venueLink.target = '_blank';
         venueLink.rel = 'noopener noreferrer';
-        venueLink.innerHTML = `${directionsIcon()}<span>${getText(venue.name, lang)} — ${getText(venue.address, lang)}</span>`;
-        venueLink.setAttribute('aria-label', localizeDigits(`${translations[lang].directionsTo} ${getText(venue.name, lang)}`, lang));
+        venueLink.innerHTML = `${directionsIcon()}<span>${venue ? `${getText(venue.name, lang)} — ${getText(venue.address, lang)}` : event.directionsLabel}</span>`;
+        venueLink.setAttribute('aria-label', venue ? localizeDigits(`${translations[lang].directionsTo} ${getText(venue.name, lang)}`, lang) : event.directionsLabel);
         item.appendChild(venueLink);
       } else {
         const pendingVenue = document.createElement('p');
@@ -272,12 +268,6 @@ function renderVenues(lang) {
         <a class="button-link directions-link" href="${venue.mapsUrl}" target="_blank" rel="noopener noreferrer" aria-label="${translations[lang].directionsTo} ${getText(venue.name, lang)}">${directionsIcon()}<span>${translations[lang].viewDirections}</span></a>
       </div>
     `;
-    if (!events.some((event) => event.venueId === venue.id)) {
-      const pendingAssignment = document.createElement('p');
-      pendingAssignment.className = 'event-note';
-      pendingAssignment.textContent = 'Event assignment to be confirmed.';
-      card.appendChild(pendingAssignment);
-    }
     venueGrid.appendChild(card);
   });
 }
@@ -304,7 +294,15 @@ function renderContacts(lang) {
       const link = document.createElement('a');
       const personName = getText(name, lang);
       link.href = safePhoneLink(number);
-      link.textContent = personName ? `${localizeDigits(personName, lang)}: ${number}` : number;
+      if (personName) {
+        const label = document.createElement('span');
+        const name = document.createElement('strong');
+        name.textContent = localizeDigits(personName, lang);
+        label.append(name, ` — ${number}`);
+        link.appendChild(label);
+      } else {
+        link.textContent = number;
+      }
       link.setAttribute('aria-label', `${localizeDigits(translations[lang].callNow, lang)} ${localizeDigits(personName, lang)} ${number}`.trim());
       item.appendChild(link);
       numberList.appendChild(item);
@@ -343,79 +341,6 @@ function updateCountdown() {
   setText('hoursLabel', translations[appState.lang].countDownHours);
   setText('minutesLabel', translations[appState.lang].countDownMinutes);
   setText('secondsLabel', translations[appState.lang].countDownSeconds);
-}
-
-function escapeCalendarText(text) {
-  return text.replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
-}
-
-function createIcsContent() {
-  const lines = [
-    'BEGIN:VCALENDAR',
-    'VERSION:2.0',
-    'PRODID:-//Aditya & Siddhibala Wedding//EN',
-    'CALSCALE:GREGORIAN',
-    'METHOD:PUBLISH',
-    'BEGIN:VTIMEZONE',
-    'TZID:Asia/Kolkata',
-    'BEGIN:STANDARD',
-    'TZOFFSETFROM:+0530',
-    'TZOFFSETTO:+0530',
-    'TZNAME:IST',
-    'END:STANDARD',
-    'END:VTIMEZONE'
-  ];
-
-  events.forEach((event) => {
-    const startDate = event.date.replace(/-/g, '') + 'T' + event.start.replace(':', '') + '00';
-    const venue = venues[event.venueId];
-    const eventTitle = getText(event.title);
-    const note = getText(event.note || event.guestNote);
-    const venueName = venue ? getText(venue.name) : 'Venue to be confirmed';
-    const description = [note, `${appState.lang === 'hi' ? 'स्थान' : 'Venue'}: ${venueName}`].filter(Boolean).join('; ');
-
-    lines.push('BEGIN:VEVENT');
-    lines.push(`UID:${event.id}@adisiddhi`);
-    lines.push(`DTSTAMP:${new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}Z$/, 'Z')}`);
-    lines.push(`DTSTART;TZID=Asia/Kolkata:${startDate}`);
-    if (event.end) {
-      const endDate = event.date.replace(/-/g, '') + 'T' + event.end.replace(':', '') + '00';
-      lines.push(`DTEND;TZID=Asia/Kolkata:${endDate}`);
-    }
-    lines.push(`SUMMARY:${escapeCalendarText(eventTitle)}`);
-    lines.push(`DESCRIPTION:${escapeCalendarText(description)}`);
-    if (venue) lines.push(`LOCATION:${escapeCalendarText(`${venueName}, ${getText(venue.address)}`)}`);
-    lines.push('END:VEVENT');
-  });
-
-  lines.push('END:VCALENDAR');
-  const encoder = new TextEncoder();
-  return lines.map((line) => {
-    let folded = '';
-    let length = 0;
-    for (const character of line) {
-      const bytes = encoder.encode(character).length;
-      if (length + bytes > 75) {
-        folded += '\r\n ';
-        length = 1;
-      }
-      folded += character;
-      length += bytes;
-    }
-    return folded;
-  }).join('\r\n');
-}
-
-function downloadCalendar() {
-  const blob = new Blob([createIcsContent()], { type: 'text/calendar;charset=utf-8' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = 'aditya-siddhibala-wedding-invitation.ics';
-  document.body.appendChild(link);
-  link.click();
-  link.remove();
-  window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
 function initMusic() {
@@ -490,14 +415,9 @@ function initMusic() {
 }
 
 function init() {
-  const calendarButton = document.getElementById('downloadCalendar');
   const contactDialog = document.getElementById('contactDialog');
   const openContactsButton = document.getElementById('openContacts');
   const closeContactsButton = document.getElementById('closeContacts');
-
-  if (calendarButton) {
-    calendarButton.addEventListener('click', downloadCalendar);
-  }
 
   if (contactDialog && openContactsButton && closeContactsButton) {
     openContactsButton.addEventListener('click', () => contactDialog.showModal());
