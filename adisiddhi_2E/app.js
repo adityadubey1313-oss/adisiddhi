@@ -3,7 +3,6 @@ const appState = {
 };
 
 const { translations, events, venues, family, couple, familyLine } = invitationData;
-const weddingEvent = events.find((event) => event.id === 'baraat-welcome');
 const receptionEvent = events.find((event) => event.id === 'reception-dinner');
 
 function formatDisplayDate(dateString, lang = appState.lang, options = {}) {
@@ -88,7 +87,6 @@ function setLanguage(lang) {
   const t = translations[lang];
   const textById = {
     introTag: t.introTag,
-    introName: getText(couple, lang),
     introInvite: t.invitationLine,
     introDate: t.weddingMeta,
     eventDateLabel: t.eventDateLabel,
@@ -124,7 +122,6 @@ function setLanguage(lang) {
   }
   const countdown = document.getElementById('countdown');
   if (countdown) countdown.setAttribute('aria-label', localizeDigits(t.countdownAria, lang));
-  renderWeddingDetails(lang);
   renderFamilies(lang);
   renderSchedule(lang);
   renderVenues(lang);
@@ -138,10 +135,7 @@ function renderFamilies(lang) {
   if (!familyContent) return;
 
   familyContent.innerHTML = '';
-  const groom = family[lang].groom;
-  const bride = family[lang].bride;
-
-  [groom, bride].forEach((section, index) => {
+  family[lang].forEach((section) => {
     const block = document.createElement('article');
     block.className = 'family-group';
     const label = document.createElement('p');
@@ -157,31 +151,9 @@ function renderFamilies(lang) {
       name.textContent = person;
       names.appendChild(name);
     });
-    block.dataset.family = index === 0 ? 'groom' : 'bride';
     block.append(label, divider, names);
     familyContent.appendChild(block);
   });
-}
-
-function renderWeddingDetails(lang) {
-  const weddingDate = document.getElementById('weddingDateDetail');
-  const ritualsTime = document.getElementById('ritualsTimeDetail');
-  const receptionTime = document.getElementById('receptionTimeDetail');
-  const venueName = document.getElementById('weddingVenueDetail');
-  const directions = document.getElementById('mainDirections');
-  const hotel = venues[weddingEvent.venueId];
-
-  if (weddingDate) {
-    weddingDate.textContent = localizeDigits(formatDisplayDate(weddingEvent.date, lang, { weekday: 'long' }), lang);
-  }
-  if (ritualsTime) ritualsTime.textContent = formatEventRange(weddingEvent);
-  if (receptionTime) receptionTime.textContent = formatEventRange(receptionEvent);
-  if (venueName) venueName.textContent = `${getText(hotel.name, lang)}, ${lang === 'hi' ? 'जबलपुर' : 'Jabalpur'}`;
-  if (directions) {
-    directions.href = hotel.mapsUrl;
-    directions.innerHTML = `${directionsIcon()}<span>${translations[lang].viewDirections}</span>`;
-    directions.setAttribute('aria-label', localizeDigits(`${translations[lang].directionsTo} ${getText(hotel.name, lang)}`, lang));
-  }
 }
 
 function renderSchedule(lang) {
@@ -307,7 +279,7 @@ function renderWhatsAppText(lang) {
 }
 
 function updateCountdown() {
-  const targetDate = new Date(`${weddingEvent.date}T${weddingEvent.start}:00+05:30`);
+  const targetDate = new Date(`${receptionEvent.date}T${receptionEvent.start}:00+05:30`);
   const now = new Date();
   const delta = Math.max(targetDate.getTime() - now.getTime(), 0);
 
@@ -406,6 +378,8 @@ function init() {
   }
 
   setLanguage(appState.lang);
+  document.querySelector('.hero-countdown').hidden = false;
+  document.getElementById('share').hidden = false;
   setInterval(updateCountdown, 1000);
 }
 

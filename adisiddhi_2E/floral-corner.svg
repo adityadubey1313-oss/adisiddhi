@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="240" viewBox="0 0 240 240" fill="none">
+  <g stroke="#a78b50" stroke-width="1.5">
+    <path d="M12 222Q38 70 210 14M24 176Q98 116 171 105M55 108Q66 51 115 18"/>
+    <path d="M26 166Q-1 135 14 112Q42 132 26 166ZM51 113Q23 88 34 64Q64 82 51 113ZM79 79Q72 44 91 30Q109 58 79 79ZM111 53Q115 18 139 12Q147 42 111 53ZM75 135Q92 107 117 115Q106 143 75 135ZM134 109Q154 83 178 95Q162 122 134 109Z" fill="#ddd8e6"/>
+  </g>
+  <defs>
+    <g id="flower">
+      <g fill="#c6afd8" stroke="#9877af" stroke-width=".8">
+        <ellipse cy="-13" rx="10" ry="17"/>
+        <ellipse cy="-13" rx="10" ry="17" transform="rotate(60)"/>
+        <ellipse cy="-13" rx="10" ry="17" transform="rotate(120)"/>
+        <ellipse cy="-13" rx="10" ry="17" transform="rotate(180)"/>
+        <ellipse cy="-13" rx="10" ry="17" transform="rotate(240)"/>
+        <ellipse cy="-13" rx="10" ry="17" transform="rotate(300)"/>
+      </g>
+      <circle r="6" fill="#b79853"/>
+    </g>
+  </defs>
+  <use href="#flower" transform="translate(40 57) rotate(15)"/>
+  <use href="#flower" transform="translate(76 109) scale(.8)"/>
+  <use href="#flower" transform="translate(140 45) scale(.9) rotate(25)"/>
+  <use href="#flower" transform="translate(25 164) scale(.65)"/>
+</svg>
