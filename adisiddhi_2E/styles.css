@@ -1544,10 +1544,43 @@ html:has(.contact-dialog[open]) {
   font-size: clamp(1.05rem, 1.8vw, 1.2rem);
 }
 
-.hero-artwork .cover-open {
-  margin-top: 0.75rem;
-  border-color: var(--gold-soft);
-  color: var(--pearl);
+.hero {
+  padding: 0;
+}
+
+.hero .hero-artwork {
+  min-height: 100vh;
+  min-height: 100svh;
+}
+
+.reception-introduction {
+  padding: 2rem 0 0;
+  text-align: center;
+  color: var(--maroon);
+}
+
+.reception-introduction .intro-tag {
+  color: var(--gold);
+}
+
+.reception-introduction .hero-subtitle,
+.reception-introduction .hero-date {
+  color: var(--maroon);
+}
+
+.scroll-reveal {
+  animation: scroll-arrive 500ms ease-out both;
+}
+
+@keyframes scroll-arrive {
+  from { opacity: 0.55; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    animation: none;
+  }
 }
 
 .music-toggle {

@@ -17,49 +17,48 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css?v=20261028-enhancements" />
+    <link rel="stylesheet" href="styles.css?v=20261028-scroll" />
   </head>
   <body>
     <audio id="backgroundMusic" src="wedding-song.mp3" loop preload="none"></audio>
-    <button class="music-toggle" id="musicToggle" type="button" aria-label="Unmute background music" aria-pressed="false" hidden>
+    <button class="music-toggle" id="musicToggle" type="button" aria-label="Mute background music" aria-pressed="true" hidden>
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M11 5 6 9H3v6h3l5 4V5Z"></path><path class="music-waves" d="M15 8a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"></path><path class="music-silent" d="m16 9 5 6m0-6-5 6"></path></svg>
     </button>
     <p class="sr-only" id="musicStatus" role="status" aria-live="polite"></p>
     <div class="page-shell">
       <main id="home">
-        <section class="hero" aria-labelledby="introName">
+        <section class="hero" aria-label="Invitation cover">
           <div class="hero-shell">
-            <div class="hero-artwork">
-              <div class="content">
-                <p class="intro-tag" id="introTag">DUBEY FAMILY</p>
-                <p class="hero-subtitle" id="introInvite">cordially invites you to the wedding reception of</p>
-                <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
-                <div class="hero-date" id="introDate">RECEPTION • Sunday, 6 December 2026 • 7:00 PM onwards (IST) • Jabalpur, Madhya Pradesh</div>
-                <div class="countdown-block hero-countdown">
-                  <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the reception">
-                    <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
-                    <span class="countdown-separator" aria-hidden="true">:</span>
-                    <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
-                    <span class="countdown-separator" aria-hidden="true">:</span>
-                    <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
-                    <span class="countdown-separator" aria-hidden="true">:</span>
-                    <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
-                  </div>
-                </div>
-                <a class="button-link button-link-light cover-open" id="openInvitation" href="#couple-introduction">Open invitation</a>
-              </div>
+            <div class="hero-artwork" role="img" aria-label="Aditya and Siddhibala wedding artwork"></div>
+          </div>
+        </section>
+
+        <section class="section reception-introduction" aria-labelledby="introName">
+          <p class="intro-tag" id="introTag">DUBEY FAMILY</p>
+          <p class="hero-subtitle" id="introInvite">cordially invites you to the wedding reception of</p>
+          <h1 class="hero-title" id="introName">Aditya &amp; Siddhibala</h1>
+          <div class="hero-date" id="introDate">RECEPTION • Sunday, 6 December 2026 • 7:00 PM onwards (IST) • Jabalpur, Madhya Pradesh</div>
+          <div class="countdown-block hero-countdown">
+            <div class="countdown-row" id="countdown" role="timer" aria-label="Countdown to the reception">
+              <div class="countdown-unit"><strong id="daysValue">00</strong><span id="daysLabel">Days</span></div>
+              <span class="countdown-separator" aria-hidden="true">:</span>
+              <div class="countdown-unit"><strong id="hoursValue">00</strong><span id="hoursLabel">Hours</span></div>
+              <span class="countdown-separator" aria-hidden="true">:</span>
+              <div class="countdown-unit"><strong id="minutesValue">00</strong><span id="minutesLabel">Minutes</span></div>
+              <span class="countdown-separator" aria-hidden="true">:</span>
+              <div class="countdown-unit"><strong id="secondsValue">00</strong><span id="secondsLabel">Seconds</span></div>
             </div>
           </div>
         </section>
 
-        <section class="section couple-introduction" id="couple-introduction" aria-label="Aditya and Siddhibala" tabindex="-1">
+        <section class="section couple-introduction" id="couple-introduction" aria-label="Aditya and Siddhibala">
           <h2 class="couple-introduction-name">Aditya</h2>
           <p class="couple-introduction-lineage">G.S/o Late Smt. Suraj Bai &amp; Late Shri Sudama Prasad Dubey</p>
-          <p class="couple-introduction-lineage couple-introduction-parents">S/O Shri Purushottam Dubey &amp; Smt. Saroj Dubey</p>
+          <p class="couple-introduction-lineage couple-introduction-parents">S/O Smt. Saroj Dubey &amp; Shri Purushottam Dubey</p>
           <p class="couple-introduction-with">with</p>
           <h2 class="couple-introduction-name">Siddhibala</h2>
           <p class="couple-introduction-lineage">G.D/o Late Smt. Nandini Dubey &amp; Dr. Krishna Kumar Dubey</p>
-          <p class="couple-introduction-lineage couple-introduction-parents">D/O Shri Sushant Kumar Dubey &amp; Smt. Niharika Dubey</p>
+          <p class="couple-introduction-lineage couple-introduction-parents">D/O Smt. Niharika Dubey &amp; Shri Sushant Kumar Dubey</p>
           <span class="family-divider" aria-hidden="true"></span>
         </section>
 
@@ -131,7 +130,7 @@
       </footer>
     </div>
 
-    <script src="invitation-data.js?v=20261028-enhancements"></script>
-    <script src="app.js?v=20261028-enhancements"></script>
+    <script src="invitation-data.js?v=20261028-scroll"></script>
+    <script src="app.js?v=20261028-scroll"></script>
   </body>
 </html>
