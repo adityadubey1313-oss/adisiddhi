@@ -1538,3 +1538,46 @@ html:has(.contact-dialog[open]) {
   font-style: italic;
   line-height: 1.2;
 }
+
+.couple-introduction-parents {
+  margin-top: 0.3rem;
+  font-size: clamp(1.05rem, 1.8vw, 1.2rem);
+}
+
+.hero-artwork .cover-open {
+  margin-top: 0.75rem;
+  border-color: var(--gold-soft);
+  color: var(--pearl);
+}
+
+.music-toggle {
+  position: fixed;
+  top: max(0.5rem, env(safe-area-inset-top));
+  right: max(0.5rem, env(safe-area-inset-right));
+  z-index: 40;
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  background: var(--pearl);
+  color: var(--maroon);
+  cursor: pointer;
+}
+
+.music-toggle svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.music-toggle[hidden],
+.music-toggle[aria-pressed="false"] .music-waves,
+.music-toggle[aria-pressed="true"] .music-silent {
+  display: none;
+}

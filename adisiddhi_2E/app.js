@@ -360,6 +360,87 @@ function downloadCalendar() {
   window.setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 
+function initMusicAndOpening() {
+  const audio = document.getElementById('backgroundMusic');
+  const toggle = document.getElementById('musicToggle');
+  const status = document.getElementById('musicStatus');
+  const opening = document.getElementById('openInvitation');
+  const introduction = document.getElementById('couple-introduction');
+  let mutedByGuest = false;
+  let playbackPending = false;
+  let openingStarted = false;
+
+  function updateMusicControl() {
+    const playing = !audio.paused && !audio.muted;
+    toggle.setAttribute('aria-label', playing ? 'Mute background music' : 'Unmute background music');
+    toggle.setAttribute('aria-pressed', String(playing));
+    toggle.title = playing ? 'Mute background music' : 'Unmute background music';
+  }
+
+  async function startMusic() {
+    if (mutedByGuest || playbackPending || !audio.paused) return;
+    playbackPending = true;
+    try {
+      await audio.play();
+      status.textContent = '';
+    } catch (error) {
+      console.warn('Background music could not start. Use the music control to retry.', error);
+      status.textContent = 'Music could not start. Use the music control to try again.';
+    } finally {
+      playbackPending = false;
+      updateMusicControl();
+    }
+  }
+
+  audio.loop = true;
+  toggle.hidden = false;
+  audio.addEventListener('play', updateMusicControl);
+  audio.addEventListener('pause', updateMusicControl);
+  audio.addEventListener('volumechange', updateMusicControl);
+  audio.addEventListener('error', () => {
+    console.warn('The invitation soundtrack could not be loaded.', audio.error);
+    status.textContent = 'Music is unavailable. Use the music control to retry.';
+    updateMusicControl();
+  });
+  toggle.addEventListener('click', () => {
+    if (!audio.paused && !audio.muted) {
+      mutedByGuest = true;
+      audio.muted = true;
+    } else {
+      mutedByGuest = false;
+      audio.muted = false;
+      if (audio.error) audio.load();
+      startMusic();
+    }
+    updateMusicControl();
+  });
+
+  function onInteraction(event) {
+    if (toggle.contains(event.target)) return;
+    if (event.type === 'keydown' && (event.repeat || !['Enter', ' '].includes(event.key))) return;
+    startMusic();
+  }
+  document.addEventListener('pointerup', onInteraction);
+  document.addEventListener('keydown', onInteraction);
+  window.addEventListener('pagehide', () => audio.pause());
+
+  opening.addEventListener('click', (event) => {
+    event.preventDefault();
+    startMusic();
+    if (openingStarted) return;
+    openingStarted = true;
+    introduction.scrollIntoView({ behavior: 'instant', block: 'start' });
+    introduction.focus({ preventScroll: true });
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      introduction.animate([
+        { opacity: 0.4, transform: 'translateX(20px)' },
+        { opacity: 1, transform: 'translateX(0)' }
+      ], { duration: 600, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
+    }
+  });
+  updateMusicControl();
+}
+
 function init() {
   const calendarButton = document.getElementById('downloadCalendar');
   const contactDialog = document.getElementById('contactDialog');
@@ -392,6 +473,7 @@ function init() {
   }
 
   setLanguage(appState.lang);
+  initMusicAndOpening();
   setInterval(updateCountdown, 1000);
 }
 
