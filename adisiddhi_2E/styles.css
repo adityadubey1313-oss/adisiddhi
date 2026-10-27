@@ -1484,3 +1484,46 @@ a:hover {
     gap: 0.45rem;
   }
 }
+
+.couple-introduction {
+  padding: 2rem 0 0;
+  text-align: center;
+  color: var(--maroon);
+}
+
+.couple-introduction > .section-heading {
+  margin: 0 auto;
+  max-width: 36rem;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  letter-spacing: 0.025em;
+}
+
+.couple-introduction > .family-divider {
+  margin: 1rem auto;
+}
+
+.couple-introduction-name {
+  margin: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.couple-introduction-lineage {
+  max-width: 36rem;
+  margin: 0.5rem auto 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: clamp(1.15rem, 2vw, 1.35rem);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.couple-introduction-with {
+  margin: 0.75rem 0;
+  color: var(--gold);
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 1.3rem;
+  font-style: italic;
+  line-height: 1.2;
+}
