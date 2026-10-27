@@ -394,6 +394,7 @@ function initMusic() {
 
   audio.loop = true;
   toggle.hidden = false;
+  audio.addEventListener('playing', removeInteractionListeners, { once: true });
   audio.addEventListener('play', updateMusicControl);
   audio.addEventListener('pause', updateMusicControl);
   audio.addEventListener('volumechange', updateMusicControl);
@@ -416,8 +417,14 @@ function initMusic() {
     if (event.type === 'keydown' && (event.repeat || !['Enter', ' ', 'ArrowDown', 'PageDown'].includes(event.key))) return;
     startMusic();
   }
-  document.addEventListener('pointerup', onInteraction);
-  document.addEventListener('keydown', onInteraction);
+  function removeInteractionListeners() {
+    document.removeEventListener('pointerup', onInteraction, true);
+    document.removeEventListener('click', onInteraction, true);
+    document.removeEventListener('keydown', onInteraction, true);
+  }
+  document.addEventListener('pointerup', onInteraction, { capture: true, passive: true });
+  document.addEventListener('click', onInteraction, { capture: true, passive: true });
+  document.addEventListener('keydown', onInteraction, { capture: true, passive: true });
   window.addEventListener('pagehide', () => audio.pause());
 
   updateMusicControl();
