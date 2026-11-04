@@ -39,10 +39,16 @@ jobs:
         with:
           enablement: true
 
+      - name: Prepare root and nested site paths
+        run: |
+          mkdir -p _site/adisiddhi_6
+          cp -R adisiddhi_6/. _site/
+          cp -R adisiddhi_6/. _site/adisiddhi_6/
+
       - name: Upload invitation artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./adisiddhi_6
+          path: ./_site
 
       - name: Deploy to GitHub Pages
         id: deployment
