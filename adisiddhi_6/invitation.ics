@@ -12,7 +12,7 @@ TZNAME:IST
 END:STANDARD
 END:VTIMEZONE
 BEGIN:VEVENT
-UID:kul-devta@adisiddhi_3h
+UID:kul-devta@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261205T120000
 DTEND;TZID=Asia/Kolkata:20261205T130000
@@ -21,7 +21,7 @@ DESCRIPTION:परंपरागत तिथि: अगहन कृष्ण 
 LOCATION:होटल गुलजार\, मदन महल चौक से शंकराचार्य चौक मार्ग\, महानद्दा\, जबलपुर\, मध्य प्रदेश\, भारत।
 END:VEVENT
 BEGIN:VEVENT
-UID:floral-haldi@adisiddhi_3h
+UID:floral-haldi@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261205T130000
 DTEND;TZID=Asia/Kolkata:20261205T143000
@@ -30,7 +30,7 @@ DESCRIPTION:आशीर्वाद और पुष्प अनुष्ठ�
 LOCATION:होटल गुलजार\, मदन महल चौक से शंकराचार्य चौक मार्ग\, महानद्दा\, जबलपुर\, मध्य प्रदेश\, भारत।
 END:VEVENT
 BEGIN:VEVENT
-UID:lagun@adisiddhi_3h
+UID:lagun@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261205T160000
 DTEND;TZID=Asia/Kolkata:20261205T173000
@@ -39,7 +39,7 @@ DESCRIPTION:यहाँ लगुन और तिलक एक ही सं�
 LOCATION:होटल गुलजार\, मदन महल चौक से शंकराचार्य चौक मार्ग\, महानद्दा\, जबलपुर\, मध्य प्रदेश\, भारत।
 END:VEVENT
 BEGIN:VEVENT
-UID:engagement-sangeet@adisiddhi_3h
+UID:engagement-sangeet@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261205T193000
 SUMMARY:सगाई और संगीत समारोह
@@ -47,7 +47,7 @@ DESCRIPTION:संध्या कार्यक्रम ७:३० अपर�
 LOCATION:होटल गुलजार\, मदन महल चौक से शंकराचार्य चौक मार्ग\, महानद्दा\, जबलपुर\, मध्य प्रदेश\, भारत।
 END:VEVENT
 BEGIN:VEVENT
-UID:baraat-welcome@adisiddhi_3h
+UID:baraat-welcome@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261206T090000
 DTEND;TZID=Asia/Kolkata:20261206T150000
@@ -56,7 +56,7 @@ DESCRIPTION:परंपरागत तिथि: अगहन कृष्ण 
 LOCATION:होटल गुलजार\, मदन महल चौक से शंकराचार्य चौक मार्ग\, महानद्दा\, जबलपुर\, मध्य प्रदेश\, भारत।
 END:VEVENT
 BEGIN:VEVENT
-UID:reception-dinner@adisiddhi_3h
+UID:reception-dinner@adisiddhi_6
 DTSTAMP:20261018T195314Z
 DTSTART;TZID=Asia/Kolkata:20261206T200000
 SUMMARY:वर-वधू आशीर्वाद समारोह एवं प्रीतिभोज
