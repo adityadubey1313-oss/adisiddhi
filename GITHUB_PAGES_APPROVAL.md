@@ -1,5 +1,13 @@
 # GitHub Pages approval checklist for all 4 invitation projects
 
+## Current Hindi sites
+
+The production Hindi repositories are `adisiddhi_6`, `adisiddhi_56`, `adisiddhi_456` and `adisiddhi_3456`. They already exist under their final names, use GitHub Actions Pages deployments, and are registered as corresponding local submodules. No repository creation or rename is required.
+
+Use the [current Hindi setup and publish instructions](REPO_SETUP_AND_PUBLISH_SEQUENCE.md#current-hindi-projects) and each project's own workflow. Do not apply the historical repository-creation or bulk-publish instructions below to these sites. Preserving the old live repositories is intentional.
+
+## Historical approval instructions for the separate legacy projects
+
 This document contains the exact repository and settings steps to approve before any live Pages publication. No deployment is triggered from this file alone.
 
 ## Critical GitHub Pages constraint

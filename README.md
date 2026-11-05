@@ -1,5 +1,28 @@
 # Aditya & Siddhibala Wedding Invitation
 
+## Current Hindi invitation projects
+
+The four production Hindi invitations are independent repositories, registered here as `main`-tracking Git submodules in [.gitmodules](.gitmodules). Use these exact local folder names, repository names and Pages paths:
+
+| Project folder | Repository | Published URL |
+|---|---|---|
+| [adisiddhi_6](adisiddhi_6/README.md) | `adityadubey1313-oss/adisiddhi_6` | https://adityadubey1313-oss.github.io/adisiddhi_6/ |
+| [adisiddhi_56](adisiddhi_56/README.md) | `adityadubey1313-oss/adisiddhi_56` | https://adityadubey1313-oss.github.io/adisiddhi_56/ |
+| [adisiddhi_456](adisiddhi_456/README.md) | `adityadubey1313-oss/adisiddhi_456` | https://adityadubey1313-oss.github.io/adisiddhi_456/ |
+| [adisiddhi_3456](adisiddhi_3456/README.md) | `adityadubey1313-oss/adisiddhi_3456` | https://adityadubey1313-oss.github.io/adisiddhi_3456/ |
+
+These are static projects; do not add a package manifest or framework base configuration merely for naming. Each project already has its own correct `siteUrl`, HTML metadata, relative assets and validated GitHub Actions Pages workflow.
+
+After cloning the parent, run `git submodule update --init --recursive`. To edit a project, first enter its folder and check out `main`; commit and push changes in that project, then separately record its updated gitlink in the parent. See [the current Hindi setup and publish instructions](REPO_SETUP_AND_PUBLISH_SEQUENCE.md#current-hindi-projects).
+
+The former local Hindi folders were preserved, with file hashes verified, outside this workspace at `C:\Users\Aditya\Downloads\invitation-hindi-legacy-20261105`: `adisiddhi_3h` maps to `adisiddhi_6`, `adisiddhi_2h` to `adisiddhi_56`, `adisiddhi_4h` to `adisiddhi_456`, and `adisiddhi_1h` to `adisiddhi_3456`. These are archival copies, not deployment sources. Existing legacy GitHub repositories and sites were not renamed or deleted.
+
+The parent repository's root invitation, English packages, `_1` through `_4` packages, bulk-publishing scripts and workflows are separate historical projects and remain unchanged. Do not use those bulk scripts for the four current Hindi repositories. The parent structure migration is staged locally; it has not been committed or pushed.
+
+## Parent invitation and historical tooling
+
+The documentation below describes the parent invitation and its historical tooling, not the current Hindi submodules.
+
 This is a static, GitHub Pages-compatible invitation. Ceremony details, dates, times, venues, family names, and translations are maintained in `invitation-data.js`; the browser builds both the schedule and downloadable calendar from those events.
 
 ## Site

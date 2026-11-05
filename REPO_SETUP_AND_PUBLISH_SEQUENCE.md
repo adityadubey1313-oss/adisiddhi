@@ -1,6 +1,42 @@
 # Repository setup and final publish sequence for all 4 invitation projects
 
-This file documents the exact setup and publish sequence for the four GitHub Pages projects. It is intended for approval and execution in GitHub, not for live deployment from this local workspace.
+## Current Hindi projects
+
+The current Hindi projects already exist as four independent GitHub repositories. Their exact workspace folders are registered submodules in [.gitmodules](.gitmodules):
+
+| Folder and repository name | Git origin (fetch and push) | Published URL |
+|---|---|---|
+| `adisiddhi_6` | `https://github.com/adityadubey1313-oss/adisiddhi_6.git` | https://adityadubey1313-oss.github.io/adisiddhi_6/ |
+| `adisiddhi_56` | `https://github.com/adityadubey1313-oss/adisiddhi_56.git` | https://adityadubey1313-oss.github.io/adisiddhi_56/ |
+| `adisiddhi_456` | `https://github.com/adityadubey1313-oss/adisiddhi_456.git` | https://adityadubey1313-oss.github.io/adisiddhi_456/ |
+| `adisiddhi_3456` | `https://github.com/adityadubey1313-oss/adisiddhi_3456.git` | https://adityadubey1313-oss.github.io/adisiddhi_3456/ |
+
+Do not create duplicate repositories or rename the old still-working sites. The parent repository tracks only each current project's gitlink and URL; it does not own those projects' invitation files.
+
+### Initialize and synchronize locally
+
+```powershell
+git submodule update --init --recursive
+git submodule sync --recursive
+```
+
+For each project, enter the exact folder, use `git switch main`, and inspect `git remote -v` and `git branch -vv`. `main` must track `origin/main`. Fresh submodule initialization normally checks out the pinned commit in detached-HEAD mode, so switch to `main` before editing. Fetch and inspect changes before any fast-forward update; do not overwrite local edits.
+
+### Build and deploy one project
+
+Each project's `.github/workflows/deploy-pages.yml` validates `app.js` and `invitation-data.js`, checks and copies `index.html`, `styles.css`, both JavaScript files, `preview.jpg`, `wedding-song1.mp3` and `whatsapp-logo.png` into `_site`, then uploads and deploys that Pages artifact.
+
+These static projects have no package manifest or framework build. No npm installation, Vite `base`, or React homepage setting is required. GitHub Pages uses GitHub Actions (`build_type: workflow`); the project's `siteUrl` and HTML metadata must match its exact published URL.
+
+Commit and push only inside the intended project repository. Its push to `main` triggers deployment. Wait for its Actions build and deployment to succeed, then verify its exact trailing-slash URL, invitation content and assets. After pushing a changed submodule, stage its new gitlink in the parent separately. Never push the parent merely to deploy a Hindi invitation.
+
+### Local migration preservation
+
+The obsolete tracked Hindi directories were moved, not deleted, to `C:\Users\Aditya\Downloads\invitation-hindi-legacy-20261105`. All original files were hash-verified after moving. The active folders contain the latest published repository versions rather than stale legacy copies. The parent migration is staged but not committed or pushed.
+
+## Historical four-project instructions
+
+The following instructions concern the separate legacy `_1` through `_4` projects only. They are retained for those projects and must not be used to publish the current Hindi invitations.
 
 ## Required repository layout
 

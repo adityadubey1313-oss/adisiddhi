@@ -1,0 +1,16 @@
+[submodule "adisiddhi_6"]
+	path = adisiddhi_6
+	url = https://github.com/adityadubey1313-oss/adisiddhi_6.git
+	branch = main
+[submodule "adisiddhi_56"]
+	path = adisiddhi_56
+	url = https://github.com/adityadubey1313-oss/adisiddhi_56.git
+	branch = main
+[submodule "adisiddhi_456"]
+	path = adisiddhi_456
+	url = https://github.com/adityadubey1313-oss/adisiddhi_456.git
+	branch = main
+[submodule "adisiddhi_3456"]
+	path = adisiddhi_3456
+	url = https://github.com/adityadubey1313-oss/adisiddhi_3456.git
+	branch = main
